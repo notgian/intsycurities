@@ -34,17 +34,17 @@ package solver;
  * A class to represent a state of the game with auxilliary functions.
  */
 public class GameState {
-    private char[][] mapData;
+    private final Character[][] mapData;
     private char[][] itemsData;
 
     /* Create a state from a given map state */
-    public GameState(char[][] mapData, char[][] itemsData) {
+    public GameState(Character[][] mapData, char[][] itemsData) {
         this.mapData = mapData;
         this.itemsData = itemsData;
     }    
 
     /* Create a state using the current map state and then enact the action*/
-    public GameState(char[][] mapData, char[][] itemsData, char action) throws Exception {
+    public GameState(Character[][] mapData, char[][] itemsData, char action) throws Exception {
         this.mapData = mapData;
         this.itemsData = itemsData;
 
@@ -93,7 +93,7 @@ public class GameState {
         this(prevGameState.mapData, prevGameState.itemsData, action);
     }
 
-    public char[][] getMapData() { return this.mapData; }
+    public Character[][] getMapData() { return this.mapData; }
     public char[][] getItemsData() { return this.itemsData; }
 
     /* Returns zero-indexed player position as an array (x,y)*/
