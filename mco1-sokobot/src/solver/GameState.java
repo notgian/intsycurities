@@ -21,6 +21,8 @@ package solver;
  *
  */
 
+import java.util.ArrayList;
+
 /*
  * ACTIONS:
  * actions are only the ff:
@@ -149,5 +151,24 @@ public class GameState {
             validActions = validActions.concat("d");
 
         return validActions;
+    }
+
+    public byte[][] getBoxLocations() {
+        ArrayList<byte[]> boxLocsList = new ArrayList<byte[]>();
+
+        int rows = mapData.length;
+        for (int i = 0; i<rows; i++) {
+            int cols = mapData[i].length;
+            for (int j = 0; j < cols; j++) {
+                if (mapData[i][j] == '$'){
+                    byte[] loc = {(byte) i, (byte) j};
+                    boxLocsList.add(loc);
+                }
+            }
+        }
+        
+        byte[][] locsList = new byte[boxLocsList.size()][];
+        locsList = boxLocsList.toArray(locsList);
+        return locsList;
     }
 } 
