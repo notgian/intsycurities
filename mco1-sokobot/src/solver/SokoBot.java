@@ -1,6 +1,7 @@
 package solver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SokoBot {
 
@@ -39,8 +40,9 @@ public class SokoBot {
 
                 char nextAction = actions.substring(i, i+1).charAt(0);
                 allActions = allActions.concat("" + nextAction);
-
                 currState = new GameState(currState.getMapData(), currState.getItemsData(), nextAction);
+
+                System.out.println("%s - %.2f".formatted(nextAction, this.calculateHeuristic(currState, locs)));
                 x++;
             } 
 
@@ -89,4 +91,65 @@ public class SokoBot {
         return locsList;
     }
 
+    private boolean isGoalState(GameState state, byte[][] goalLocs) {
+        int rows = goalLocs.length;
+        char[][] mapItems = state.getItemsData();
+        for (int i = 0; i < rows; i++) {
+            int cols = goalLocs[i].length;
+            for (int j = 0; j < cols; j++) {
+                if (mapItems[i][j] != '$') {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    
+    // The sum of the average distances of each box *NOT* in a goal location
+    // to all goal locations without a box in them
+    // To use this, get all the possible next states as GameStates and plug
+    // them into this method individually
+    private double calculateHeuristic(GameState state, byte[][] goalLocs) {
+        byte[][] boxLocs = state.getBoxLocations();
+
+        ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>();
+        ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>();
+        
+        // save which boxes and goals to use for calculations
+        for (byte[] goalLoc: goalLocs) {
+            for (byte[] boxLoc: boxLocs) {
+                if (Arrays.equals(goalLoc, boxLoc))
+                    continue;
+
+                noBoxLocs.add(boxLoc);
+                noGoalLocs.add(goalLoc);
+            }
+        }
+
+        double heuristic = 0.0;
+        // edge case; already solved.
+        if (noBoxLocs.isEmpty())
+            return heuristic;
+
+        // calculate the avg euclidian distance of each box
+        // to each goal
+        for (byte[] boxLoc: noBoxLocs) {
+            double totalDistances = 0.0;
+            for (byte[] goalLoc: noGoalLocs) {
+                byte xb = boxLoc[0];
+                byte yb = boxLoc[1];
+
+                byte xg = goalLoc[0];
+                byte yg = goalLoc[1];
+
+                double x2 = Math.pow((xg-xb), 2);
+                double y2 = Math.pow((yg-yb), 2);
+
+                totalDistances += Math.sqrt(x2 + y2);
+            }
+            heuristic += totalDistances / noGoalLocs.size();
+        }
+        return heuristic;
+    }
 }

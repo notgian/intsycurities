@@ -156,11 +156,11 @@ public class GameState {
     public byte[][] getBoxLocations() {
         ArrayList<byte[]> boxLocsList = new ArrayList<byte[]>();
 
-        int rows = mapData.length;
+        int rows = this.itemsData.length;
         for (int i = 0; i<rows; i++) {
-            int cols = mapData[i].length;
+            int cols = this.itemsData[i].length;
             for (int j = 0; j < cols; j++) {
-                if (mapData[i][j] == '$'){
+                if (this.itemsData[i][j] == '$'){
                     byte[] loc = {(byte) i, (byte) j};
                     boxLocsList.add(loc);
                 }
