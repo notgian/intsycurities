@@ -1,4 +1,8 @@
 package solver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
    Example of a map for reference.
    Legend:
@@ -21,8 +25,6 @@ package solver;
  *
  */
 
-import java.util.ArrayList;
-
 /*
  * ACTIONS:
  * actions are only the ff:
@@ -38,17 +40,27 @@ import java.util.ArrayList;
 public class GameState {
     private final Character[][] mapData;
     private char[][] itemsData;
+    private char[][] prevItemsData = null;
+    private Character prevAction = null;
+
+    private GameState predecessor = null;
 
     /* Create a state from a given map state */
     public GameState(Character[][] mapData, char[][] itemsData) {
         this.mapData = mapData;
-        this.itemsData = itemsData;
+        this.itemsData = deepCopyItems(itemsData);
     }    
 
     /* Create a state using the current map state and then enact the action*/
     public GameState(Character[][] mapData, char[][] itemsData, char action) throws Exception {
         this.mapData = mapData;
-        this.itemsData = itemsData;
+        // Snapshot the parent state separately from the array we will mutate.
+        // Without these copies, every GameState created from the same parent
+        // would share (and mutate) the same char[][] reference, which makes
+        // equals() comparisons across states meaningless.
+        this.prevItemsData = deepCopyItems(itemsData);
+        this.itemsData = deepCopyItems(itemsData);
+        this.prevAction = action;
 
         if (!this.getValidActions().contains("" + action))
             throw new Exception("Action provided is not valid action for this state!");
@@ -93,6 +105,17 @@ public class GameState {
 
     public GameState(GameState prevGameState, char action) throws Exception {
         this(prevGameState.mapData, prevGameState.itemsData, action);
+    }
+
+    /* Returns an independent copy of a char[][] so callers can safely mutate
+     * one state's items without affecting another. */
+    private static char[][] deepCopyItems(char[][] src) {
+        char[][] dst = new char[src.length][];
+        for (int i = 0; i < src.length; i++) {
+            dst[i] = new char[src[i].length];
+            System.arraycopy(src[i], 0, dst[i], 0, src[i].length);
+        }
+        return dst;
     }
 
     public Character[][] getMapData() { return this.mapData; }
@@ -170,5 +193,126 @@ public class GameState {
         byte[][] locsList = new byte[boxLocsList.size()][];
         locsList = boxLocsList.toArray(locsList);
         return locsList;
+    }
+
+    public byte[][] getGoalLocs() {
+        ArrayList<byte[]> goalLocsList = new ArrayList<byte[]>();
+
+        int rows = this.mapData.length;
+        for (int i = 0; i<rows; i++) {
+            int cols = this.mapData[i].length;
+            for (int j = 0; j < cols; j++) {
+                if (this.mapData[i][j] == '.'){
+                    byte[] loc = {(byte) i, (byte) j};
+                    goalLocsList.add(loc);
+                }
+            }
+        }
+        
+        byte[][] locsList = new byte[goalLocsList.size()][];
+        locsList = goalLocsList.toArray(locsList);
+        return locsList;
+    }
+
+    public Character getPrevAction() {
+        return this.prevAction;
+    }
+
+    public char[][] getPrevItemsData() {
+        return this.prevItemsData;
+    }
+
+    public void setPredecessor(GameState g) {
+        this.predecessor = g;
+    }
+
+    public GameState getPredecessor() {
+        return this.predecessor;
+    }
+
+    public boolean checkWinState() {
+        byte[][] boxLocs = this.getBoxLocations();
+        byte[][] goalLocs = this.getGoalLocs();
+
+        for (byte[] goalLoc: goalLocs) {
+            boolean found = false;
+            for (byte[] boxLoc: boxLocs) {
+                if (Arrays.equals(goalLoc, boxLoc)) 
+                    found = true;
+            }
+            if (!found) 
+                return false;
+        }
+        return true;
+    }
+
+    // The sum of the average distances of each box *NOT* in a goal location
+    // to all goal locations without a box in them
+    // To use this, get all the possible next states as GameStates and plug
+    // them into this method individually
+    public double calculateHeuristic() {
+        byte[][] boxLocs = this.getBoxLocations();
+        byte[][] goalLocs = this.getGoalLocs();
+
+        ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>();
+        ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>();
+        
+        // save which boxes and goals to use for calculations
+        for (byte[] goalLoc: goalLocs) {
+            for (byte[] boxLoc: boxLocs) {
+                if (Arrays.equals(goalLoc, boxLoc))
+                    continue;
+
+                noBoxLocs.add(boxLoc);
+                noGoalLocs.add(goalLoc);
+            }
+        }
+
+        double heuristic = 0.0;
+        // edge case; already solved.
+        if (noBoxLocs.isEmpty())
+            return heuristic;
+
+        // calculate the avg euclidian distance of each box
+        // to each goal
+        for (byte[] boxLoc: noBoxLocs) {
+            double totalDistances = 0.0;
+            for (byte[] goalLoc: noGoalLocs) {
+                byte xb = boxLoc[0];
+                byte yb = boxLoc[1];
+
+                byte xg = goalLoc[0];
+                byte yg = goalLoc[1];
+
+                double x2 = Math.pow((xg-xb), 2);
+                double y2 = Math.pow((yg-yb), 2);
+
+                totalDistances += Math.sqrt(x2 + y2);
+            }
+            heuristic += totalDistances / noGoalLocs.size();
+        }
+        return heuristic;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GameState)) return false;
+
+        GameState gs = (GameState) o;
+
+        // Two states are equal iff their itemsData arrays are element-wise equal.
+        // Arrays.deepEquals handles null, length mismatches, and per-row lengths
+        // correctly (which the previous hand-rolled loop did not -- it used the
+        // row count as the column count, ignoring rightmost columns on wider
+        // maps and risking AIOOBE on taller maps).
+        return Arrays.deepEquals(this.itemsData, gs.itemsData);
+    }
+
+    @Override
+    public int hashCode() {
+        // Must be consistent with equals(): states equal under itemsData must
+        // produce the same hash. Required for HashSet/HashMap lookups.
+        return Arrays.deepHashCode(this.itemsData);
     }
 } 
