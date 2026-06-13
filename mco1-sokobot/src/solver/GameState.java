@@ -42,6 +42,7 @@ public class GameState {
     private char[][] itemsData;
     private char[][] prevItemsData = null;
     private Character prevAction = null;
+    private byte[][] goalLocs = null;
 
     private GameState predecessor = null;
 
@@ -196,6 +197,9 @@ public class GameState {
     }
 
     public byte[][] getGoalLocs() {
+        if (this.goalLocs != null)
+            return goalLocs;
+
         ArrayList<byte[]> goalLocsList = new ArrayList<byte[]>();
 
         int rows = this.mapData.length;
@@ -212,6 +216,10 @@ public class GameState {
         byte[][] locsList = new byte[goalLocsList.size()][];
         locsList = goalLocsList.toArray(locsList);
         return locsList;
+    }
+
+    public void setGoalLocs(byte[][] goalLocs) {
+        this.goalLocs = goalLocs;
     }
 
     public Character getPrevAction() {

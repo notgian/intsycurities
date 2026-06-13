@@ -52,11 +52,10 @@ public class SokoBot {
                 for (int i = 0; i < validActions.length(); i++) {
                     GameState nextState = new GameState(exploredState.getMapData(), exploredState.getItemsData(), validActions.charAt(i));
                     nextState.setPredecessor(exploredState);
+                    nextState.setGoalLocs(goalLocs);
                     if (!explored.contains(nextState))
                         frontier.add(nextState);
                 }
-
-
             }
             
             GameState curr = lastExplored;
@@ -81,25 +80,6 @@ public class SokoBot {
             e.printStackTrace();
         }
         return "";
-    }
-
-    private byte[][] getGoalLocs(Character[][] mapData) {
-        ArrayList<byte[]> goalLocsList = new ArrayList<byte[]>();
-
-        int rows = mapData.length;
-        for (int i = 0; i<rows; i++) {
-            int cols = mapData[i].length;
-            for (int j = 0; j < cols; j++) {
-                if (mapData[i][j] == '.'){
-                    byte[] loc = {(byte) i, (byte) j};
-                    goalLocsList.add(loc);
-                }
-            }
-        }
-        
-        byte[][] locsList = new byte[goalLocsList.size()][];
-        locsList = goalLocsList.toArray(locsList);
-        return locsList;
     }
 
     private boolean isGoalState(GameState state, byte[][] goalLocs) {
