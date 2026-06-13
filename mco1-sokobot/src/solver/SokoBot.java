@@ -32,6 +32,13 @@ public class SokoBot {
                 if (exploredState.getPrevAction() != '\u0000')
                     actions = actions.concat("" + exploredState.getPrevAction());
                 
+
+                // Temporary only for DEBUGGING
+                // IMPORTANT TODO: DELETE THIS
+                if (explored.size() % 1000 == 0)
+                    System.out.println("Explored: %d".formatted(explored.size()));
+                //
+                
                 solutionFound = exploredState.checkWinState();
                 if (solutionFound) continue;
 

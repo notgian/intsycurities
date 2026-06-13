@@ -259,23 +259,22 @@ public class GameState {
 
         byte[][] boxLocs = this.getBoxLocations();
         byte[][] goalLocs = this.getGoalLocs();
-        ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>();
-        ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>();
+        ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>(Arrays.asList(boxLocs));
+        ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>(Arrays.asList(goalLocs));
         
         // save which boxes and goals to use for calculations
         for (byte[] goalLoc: goalLocs) {
             for (byte[] boxLoc: boxLocs) {
-                if (Arrays.equals(goalLoc, boxLoc))
-                    continue;
-                noBoxLocs.add(boxLoc);
-                noGoalLocs.add(goalLoc);
+                if (Arrays.equals(goalLoc, boxLoc)) {
+                    noBoxLocs.remove(boxLoc);
+                    noGoalLocs.remove(goalLoc);
+                }
             }
         }
 
-        double heuristic = 0.0;
         // edge case; already solved.
         if (noBoxLocs.isEmpty())
-            return heuristic;
+            return this.heuristic;
         // calculate the avg euclidian distance of each box
         // to each goal
         for (byte[] boxLoc: noBoxLocs) {
@@ -287,15 +286,14 @@ public class GameState {
                 byte xg = goalLoc[0];
                 byte yg = goalLoc[1];
 
-                double x2 = Math.pow((xg-xb), 2);
-                double y2 = Math.pow((yg-yb), 2);
+                double x2 = (xg-xb)*(xg-xb);
+                double y2 = (yg-yb)*(yg-yb);
 
-                totalDistances += Math.sqrt(x2 + y2);
+                totalDistances += x2 + y2;
             }
-            heuristic += totalDistances / noGoalLocs.size();
+            this.heuristic += totalDistances / noGoalLocs.size();
         }
-        this.heuristic = heuristic;
-        return heuristic;
+        return this.heuristic;
     }
 
     @Override
