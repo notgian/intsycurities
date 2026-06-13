@@ -6,10 +6,8 @@ import java.util.PriorityQueue;
 import java.util.HashSet;
 
 public class SokoBot {
-
     public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
         try {
-
             GameState initialState = new GameState(mapData, itemsData);
             byte[][] goalLocs = initialState.getGoalLocs();
 
@@ -69,20 +67,5 @@ public class SokoBot {
             e.printStackTrace();
         }
         return "";
-    }
-
-    private boolean isGoalState(GameState state, byte[][] goalLocs) {
-        int rows = goalLocs.length;
-        char[][] mapItems = state.getItemsData();
-        for (int i = 0; i < rows; i++) {
-            int cols = goalLocs[i].length;
-            for (int j = 0; j < cols; j++) {
-                if (mapItems[i][j] != '$') {
-                    return false;
-                }
-            }
-        }
-
-        return true;
     }
 }

@@ -43,6 +43,7 @@ public class GameState {
     private char[][] prevItemsData = null;
     private char prevAction = '\u0000';
     private byte[][] goalLocs = null;
+    private double heuristic = -1.0;
 
     private GameState predecessor = null;
 
@@ -253,9 +254,11 @@ public class GameState {
     // To use this, get all the possible next states as GameStates and plug
     // them into this method individually
     public double calculateHeuristic() {
+        if (this.heuristic >= 0)
+            return this.heuristic;
+
         byte[][] boxLocs = this.getBoxLocations();
         byte[][] goalLocs = this.getGoalLocs();
-
         ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>();
         ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>();
         
@@ -264,7 +267,6 @@ public class GameState {
             for (byte[] boxLoc: boxLocs) {
                 if (Arrays.equals(goalLoc, boxLoc))
                     continue;
-
                 noBoxLocs.add(boxLoc);
                 noGoalLocs.add(goalLoc);
             }
@@ -274,7 +276,6 @@ public class GameState {
         // edge case; already solved.
         if (noBoxLocs.isEmpty())
             return heuristic;
-
         // calculate the avg euclidian distance of each box
         // to each goal
         for (byte[] boxLoc: noBoxLocs) {
@@ -293,6 +294,7 @@ public class GameState {
             }
             heuristic += totalDistances / noGoalLocs.size();
         }
+        this.heuristic = heuristic;
         return heuristic;
     }
 
