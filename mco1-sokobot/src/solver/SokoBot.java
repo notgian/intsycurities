@@ -9,19 +9,8 @@ public class SokoBot {
 
     public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
         try {
-            // Construct a version of the map data using a Ref Type
-            // This should help reduce the redundancy of having exact copies of the 
-            // map data in different parts of the memory
-            Character[][] mapDataRef = new Character[mapData.length][];
-            for (int i = 0; i < mapData.length; i++) {
-                int cols = mapData[i].length;
-                mapDataRef[i] = new Character[cols];
-                for (int j = 0; j < cols; j++) {
-                    mapDataRef[i][j] = mapData[i][j];
-                }
-            }
 
-            GameState initialState = new GameState(mapDataRef, itemsData);
+            GameState initialState = new GameState(mapData, itemsData);
             byte[][] goalLocs = initialState.getGoalLocs();
 
             PriorityQueue<GameState> frontier = new PriorityQueue<>(new HeuristicsComparator());
@@ -42,7 +31,7 @@ public class SokoBot {
                 GameState exploredState = frontier.poll();
                 explored.add(exploredState);
                 lastExplored = exploredState; 
-                if (exploredState.getPrevAction() != null)
+                if (exploredState.getPrevAction() != '\u0000')
                     actions = actions.concat("" + exploredState.getPrevAction());
                 
                 solutionFound = exploredState.checkWinState();
@@ -65,7 +54,7 @@ public class SokoBot {
             
             while (!done) {
                 Character prevAction = curr.getPrevAction();
-                if (prevAction != null)
+                if (prevAction != '\u0000')
                     actions = prevAction + actions;
                 curr = curr.getPredecessor();
                 if (curr == null) {

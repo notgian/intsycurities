@@ -38,27 +38,23 @@ import java.util.Arrays;
  * A class to represent a state of the game with auxilliary functions.
  */
 public class GameState {
-    private final Character[][] mapData;
+    private final char[][] mapData;
     private char[][] itemsData;
     private char[][] prevItemsData = null;
-    private Character prevAction = null;
+    private char prevAction = '\u0000';
     private byte[][] goalLocs = null;
 
     private GameState predecessor = null;
 
     /* Create a state from a given map state */
-    public GameState(Character[][] mapData, char[][] itemsData) {
+    public GameState(char[][] mapData, char[][] itemsData) {
         this.mapData = mapData;
         this.itemsData = deepCopyItems(itemsData);
     }    
 
     /* Create a state using the current map state and then enact the action*/
-    public GameState(Character[][] mapData, char[][] itemsData, char action) throws Exception {
+    public GameState(char[][] mapData, char[][] itemsData, char action) throws Exception {
         this.mapData = mapData;
-        // Snapshot the parent state separately from the array we will mutate.
-        // Without these copies, every GameState created from the same parent
-        // would share (and mutate) the same char[][] reference, which makes
-        // equals() comparisons across states meaningless.
         this.prevItemsData = deepCopyItems(itemsData);
         this.itemsData = deepCopyItems(itemsData);
         this.prevAction = action;
@@ -70,8 +66,7 @@ public class GameState {
         byte pX = playerPos[0];
         byte pY = playerPos[1];
 
-        // Clear old player position so getPlayerPos() returns the new position
-        // on subsequent calls (otherwise stale '@' marks accumulate).
+        // Clear old player position
         this.itemsData[pY][pX] = ' ';
 
         // Left, box | Left
@@ -119,7 +114,7 @@ public class GameState {
         return dst;
     }
 
-    public Character[][] getMapData() { return this.mapData; }
+    public char[][] getMapData() { return this.mapData; }
     public char[][] getItemsData() { return this.itemsData; }
 
     /* Returns zero-indexed player position as an array (x,y)*/
@@ -190,7 +185,6 @@ public class GameState {
                 }
             }
         }
-        
         byte[][] locsList = new byte[boxLocsList.size()][];
         locsList = boxLocsList.toArray(locsList);
         return locsList;
@@ -222,7 +216,7 @@ public class GameState {
         this.goalLocs = goalLocs;
     }
 
-    public Character getPrevAction() {
+    public char getPrevAction() {
         return this.prevAction;
     }
 
@@ -308,19 +302,11 @@ public class GameState {
         if (!(o instanceof GameState)) return false;
 
         GameState gs = (GameState) o;
-
-        // Two states are equal iff their itemsData arrays are element-wise equal.
-        // Arrays.deepEquals handles null, length mismatches, and per-row lengths
-        // correctly (which the previous hand-rolled loop did not -- it used the
-        // row count as the column count, ignoring rightmost columns on wider
-        // maps and risking AIOOBE on taller maps).
         return Arrays.deepEquals(this.itemsData, gs.itemsData);
     }
 
     @Override
     public int hashCode() {
-        // Must be consistent with equals(): states equal under itemsData must
-        // produce the same hash. Required for HashSet/HashMap lookups.
         return Arrays.deepHashCode(this.itemsData);
     }
 } 
