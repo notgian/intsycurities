@@ -15,46 +15,37 @@ public class SokoBot {
             boolean solutionFound = false;
             frontier.add(initialState);
 
-            // ArrayList<GameState> explored = new ArrayList<GameState>();
             HashSet<GameState> explored = new HashSet<GameState>();
             GameState lastExplored = null;
             String actions = "";
 
             // For logging only. TODO: REMOVE
-            int skip = 10000;
+            int skip = 50000;
 
             while (!frontier.isEmpty() && !solutionFound) {
                 // deque fronteir
                 // get valid actions
                 // add all valid actions to the frontier 
                 // repeat
-                
-                double startTime;
                
-                startTime = System.nanoTime();
                 GameState exploredState;
                 do {
                     exploredState = frontier.poll();
-                } while (explored.contains(exploredState));
-                
+                } while (explored.contains(exploredState) && exploredState != null);
+
                 explored.add(exploredState);
-
                 lastExplored = exploredState; 
-                if (exploredState.getPrevAction() != '\u0000')
-                    actions = actions.concat("" + exploredState.getPrevAction());
                 
-                startTime = System.nanoTime();
-                solutionFound = exploredState.checkWinState(mapData, goalLocs);
-                if (solutionFound) {
-                    System.out.println("lksdjglksdj!");
-                    continue;
-                }
-
-                startTime = System.nanoTime();
                 String validActions = exploredState.getValidActions(mapData);
                 for (int i = 0; i < validActions.length(); i++) {
                     GameState nextState = new GameState(exploredState, validActions.charAt(i), goalLocs);
                     nextState.setPredecessor(exploredState);
+
+                    if (nextState.checkWinState(mapData, goalLocs)) {
+                        lastExplored = nextState;
+                        solutionFound = true;
+                        continue;
+                    }
 
                     if (!explored.contains(nextState))
                         frontier.add(nextState);

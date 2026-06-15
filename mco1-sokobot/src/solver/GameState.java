@@ -93,22 +93,6 @@ public class GameState {
         Arrays.sort(this.boxLocations);
         calculateHeuristic(goalLocs);
     }
-    
-    /* Returns an independent copy of a char[][] so callers can safely mutate
-     * one state's items without affecting another. */
-    // private static char[][] deepCopyItems(char[][] src) {
-    //     char[][] dst = new char[src.length][];
-    //     for (int i = 0; i < src.length; i++) {
-    //         dst[i] = new char[src[i].length];
-    //         System.arraycopy(src[i], 0, dst[i], 0, src[i].length);
-    //     }
-    //     return dst;
-    // }
-
-    /* Returns zero-indexed player position as an array (x,y)*/
-    public int getPlayerPos() {
-        return this.playerPos;
-    }
 
     /* Returns the valid actions in one contiguous string
      * i.e lud, lr, ud
@@ -147,23 +131,10 @@ public class GameState {
 
         return validActions;
     }
-
-    public int[] getBoxLocations() {
-        return this.boxLocations;
-    }
-
-    public char getPrevAction() {
-        return this.prevAction;
-    }
-
-    public void setPredecessor(GameState g) {
-        this.predecessor = g;
-    }
-
-    public GameState getPredecessor() {
-        return this.predecessor;
-    }
-
+    
+    /*
+     * Checks if all boxes are in the goals 
+     */
     public boolean checkWinState(char[][] mapData, int[] goalLocs) {
         for (int goalLoc: goalLocs) {
             boolean found = false;
@@ -176,23 +147,12 @@ public class GameState {
         }
         return true;
     }
-
-    public boolean hasBoxInTile(int x, int y) {
-        return Arrays.binarySearch(this.boxLocations, (y * this.mapWidth) + x ) >= 0;
-    }
-
-    public boolean hasBoxInTile(int pos1D) {
-        return Arrays.binarySearch(this.boxLocations, pos1D) >= 0;
-    }
-
-    public double getHeuristics() {
-        return this.heuristic;
-    }
-
-    // The sum of the average distances of each box *NOT* in a goal location
-    // to all goal locations without a box in them
-    // To use this, get all the possible next states as GameStates and plug
-    // them into this method individually
+    
+    /* 
+     * Calculates the heuristic value and sets the
+     * object's internal property
+     *
+     * */
     public void calculateHeuristic(int[] goalLocs) {
         if (this.heuristic != -1) return;
         this.heuristic = 0;
@@ -214,44 +174,23 @@ public class GameState {
             this.heuristic += minDistance;
         }
     }
-        // int[][] boxLocs = this.getBoxLocations();
-        //
-        // ArrayList<int[]> noBoxLocs = new ArrayList<int[]>(Arrays.asList(boxLocs));
-        // ArrayList<int[]> noGoalLocs = new ArrayList<int[]>(Arrays.asList(goalLocs));
-        //
-        // // save which boxes and goals to use for calculations
-        // for (int[] goalLoc: goalLocs) {
-        //     for (int[] boxLoc: boxLocs) {
-        //         if (Arrays.equals(goalLoc, boxLoc)) {
-        //             noBoxLocs.remove(boxLoc);
-        //             noGoalLocs.remove(goalLoc);
-        //         }
-        //     }
-        // }
-        //
-        // // edge case; already solved.
-        // if (noBoxLocs.isEmpty())
-        //     return this.heuristic;
-        // // calculate the avg euclidian distance of each box
-        // // to each goal
-        // for (int[] boxLoc: noBoxLocs) {
-        //     double totalDistances = 0.0;
-        //     for (int[] goalLoc: noGoalLocs) {
-        //         int xb = boxLoc[0];
-        //         int yb = boxLoc[1];
-        //
-        //         int xg = goalLoc[0];
-        //         int yg = goalLoc[1];
-        //
-        //         double x2 = (xg-xb)*(xg-xb);
-        //         double y2 = (yg-yb)*(yg-yb);
-        //
-        //         totalDistances += x2 + y2;
-        //     }
-        //     this.heuristic += totalDistances / noGoalLocs.size();
-        // }
-        // return this.heuristic;
-    // }
+
+    public boolean hasBoxInTile(int x, int y) {
+        return Arrays.binarySearch(this.boxLocations, (y * this.mapWidth) + x ) >= 0;
+    }
+
+    public boolean hasBoxInTile(int pos1D) {
+        return Arrays.binarySearch(this.boxLocations, pos1D) >= 0;
+    }
+
+
+    // Ordinary getters and setters
+    public int getPlayerPos() { return this.playerPos; }
+    public int[] getBoxLocations() { return this.boxLocations; }
+    public char getPrevAction() { return this.prevAction; }
+    public GameState getPredecessor() { return this.predecessor; }
+    public void setPredecessor(GameState g) { this.predecessor = g; }
+    public int getHeuristics() { return this.heuristic; }
 
     @Override
     public boolean equals(Object o) {
@@ -259,14 +198,12 @@ public class GameState {
         if (!(o instanceof GameState)) return false;
         GameState gs = (GameState) o;
 
-        Arrays.sort(this.boxLocations);
         return this.playerPos == gs.playerPos && Arrays.equals(this.boxLocations, gs.boxLocations);
     }
+
     @Override
     public int hashCode() {
-        // return Arrays.deepHashCode(this.itemsData);
         int result = Arrays.hashCode(this.boxLocations);
-        result = 31 * result + this.playerPos;
-        return result;
+        return 31 * result + this.playerPos;
     }
 } 
