@@ -38,34 +38,31 @@ import java.util.Arrays;
  * A class to represent a state of the game with auxilliary functions.
  */
 public class GameState {
-    private final char[][] mapData;
     private char[][] itemsData;
     private char prevAction = '\u0000';
-    private byte[][] goalLocs = null;
     private double heuristic = -1.0;
     private String validActions = null;
-    private byte[] playerPos = null;
+    private int[] playerPos = null;
 
     private GameState predecessor = null;
 
     /* Create a state from a given map state */
-    public GameState(char[][] mapData, char[][] itemsData) {
-        this.mapData = mapData;
+    public GameState(char[][] itemsData, int[][] goalLocs) {
         this.itemsData = deepCopyItems(itemsData);
+        calculateHeuristic(goalLocs);
     }    
 
     /* Create a state using the current map state and then enact the action*/
-    public GameState(char[][] mapData, char[][] itemsData, char action) throws Exception {
-        this.mapData = mapData;
+    public GameState(char[][] itemsData, char action, int[][] goalLocs) throws Exception {
         this.itemsData = deepCopyItems(itemsData);
         this.prevAction = action;
 
         // if (!this.getValidActions().contains("" + action))
         //     throw new Exception("Action provided is not valid action for this state!");
 
-        byte[] playerPos = this.getPlayerPos();
-        byte pX = playerPos[0];
-        byte pY = playerPos[1];
+        int[] playerPos = this.getPlayerPos();
+        int pX = playerPos[0];
+        int pY = playerPos[1];
 
         // Clear old player position
         this.itemsData[pY][pX] = ' ';
@@ -98,10 +95,12 @@ public class GameState {
         } else if (action == 'd') {
             this.itemsData[pY+1][pX] = '@';
         }
+
+        calculateHeuristic(goalLocs);
     }    
 
-    public GameState(GameState prevGameState, char action) throws Exception {
-        this(prevGameState.mapData, prevGameState.itemsData, action);
+    public GameState(GameState prevGameState, char action, int[][] goalLocs) throws Exception {
+        this(prevGameState.itemsData, action, goalLocs);
     }
 
     /* Returns an independent copy of a char[][] so callers can safely mutate
@@ -115,19 +114,18 @@ public class GameState {
         return dst;
     }
 
-    public char[][] getMapData() { return this.mapData; }
     public char[][] getItemsData() { return this.itemsData; }
 
     /* Returns zero-indexed player position as an array (x,y)*/
-    public byte[] getPlayerPos() {
+    public int[] getPlayerPos() {
         if (this.playerPos != null)
             return this.playerPos;
 
-        byte x = 0;
-        byte y = 0;
+        int x = 0;
+        int y = 0;
         for (char[] row: this.itemsData) { for (char i: row) {
             if (i == '@') {
-                byte[] ret = {x, y};
+                int[] ret = {x, y};
                 return ret;
             }
             x += 1;
@@ -136,7 +134,7 @@ public class GameState {
         x = 0;
         }
 
-        byte[] ret = {-1, -1};
+        int[] ret = {-1, -1};
         this.playerPos = ret;
         return this.playerPos;
     }
@@ -145,17 +143,17 @@ public class GameState {
      * i.e lud, lr, ud
      *
      */
-    public String getValidActions() {
+    public String getValidActions(char[][] mapData) {
         if (this.validActions != null)
             return this.validActions;
         validActions = "";
 
-        byte[] playerPos = this.getPlayerPos();
-        byte pX = playerPos[0];
-        byte pY = playerPos[1];
+        int[] playerPos = this.getPlayerPos();
+        int pX = playerPos[0];
+        int pY = playerPos[1];
 
-        byte mapLen = (byte) this.mapData[0].length;
-        byte mapHgt = (byte) this.mapData.length;
+        int mapLen = (int) mapData[0].length;
+        int mapHgt = (int) mapData.length;
         
         // Check left validity
         // Either: left to player is box AND square left of box is not wall AND not box,
@@ -179,48 +177,22 @@ public class GameState {
         return validActions;
     }
 
-    public byte[][] getBoxLocations() {
-        ArrayList<byte[]> boxLocsList = new ArrayList<byte[]>();
+    public int[][] getBoxLocations() {
+        ArrayList<int[]> boxLocsList = new ArrayList<int[]>();
 
         int rows = this.itemsData.length;
         for (int i = 0; i<rows; i++) {
             int cols = this.itemsData[i].length;
             for (int j = 0; j < cols; j++) {
                 if (this.itemsData[i][j] == '$'){
-                    byte[] loc = {(byte) i, (byte) j};
+                    int[] loc = {(int) i, (int) j};
                     boxLocsList.add(loc);
                 }
             }
         }
-        byte[][] locsList = new byte[boxLocsList.size()][];
+        int[][] locsList = new int[boxLocsList.size()][];
         locsList = boxLocsList.toArray(locsList);
         return locsList;
-    }
-
-    public byte[][] getGoalLocs() {
-        if (this.goalLocs != null)
-            return goalLocs;
-
-        ArrayList<byte[]> goalLocsList = new ArrayList<byte[]>();
-
-        int rows = this.mapData.length;
-        for (int i = 0; i<rows; i++) {
-            int cols = this.mapData[i].length;
-            for (int j = 0; j < cols; j++) {
-                if (this.mapData[i][j] == '.'){
-                    byte[] loc = {(byte) i, (byte) j};
-                    goalLocsList.add(loc);
-                }
-            }
-        }
-        
-        byte[][] locsList = new byte[goalLocsList.size()][];
-        locsList = goalLocsList.toArray(locsList);
-        return locsList;
-    }
-
-    public void setGoalLocs(byte[][] goalLocs) {
-        this.goalLocs = goalLocs;
     }
 
     public char getPrevAction() {
@@ -235,13 +207,12 @@ public class GameState {
         return this.predecessor;
     }
 
-    public boolean checkWinState() {
-        byte[][] boxLocs = this.getBoxLocations();
-        byte[][] goalLocs = this.getGoalLocs();
+    public boolean checkWinState(char[][] mapData, int[][] goalLocs) {
+        int[][] boxLocs = this.getBoxLocations();
 
-        for (byte[] goalLoc: goalLocs) {
+        for (int[] goalLoc: goalLocs) {
             boolean found = false;
-            for (byte[] boxLoc: boxLocs) {
+            for (int[] boxLoc: boxLocs) {
                 if (Arrays.equals(goalLoc, boxLoc)) 
                     found = true;
             }
@@ -251,23 +222,27 @@ public class GameState {
         return true;
     }
 
+    public double getHeuristics() {
+        return this.heuristic;
+    }
+
     // The sum of the average distances of each box *NOT* in a goal location
     // to all goal locations without a box in them
     // To use this, get all the possible next states as GameStates and plug
     // them into this method individually
-    public double calculateHeuristic() {
+    public double calculateHeuristic(int[][] goalLocs) {
         if (this.heuristic >= 0)
             return this.heuristic;
         this.heuristic = 0.0;
 
-        byte[][] boxLocs = this.getBoxLocations();
-        byte[][] goalLocs = this.getGoalLocs();
-        ArrayList<byte[]> noBoxLocs = new ArrayList<byte[]>(Arrays.asList(boxLocs));
-        ArrayList<byte[]> noGoalLocs = new ArrayList<byte[]>(Arrays.asList(goalLocs));
+        int[][] boxLocs = this.getBoxLocations();
+
+        ArrayList<int[]> noBoxLocs = new ArrayList<int[]>(Arrays.asList(boxLocs));
+        ArrayList<int[]> noGoalLocs = new ArrayList<int[]>(Arrays.asList(goalLocs));
         
         // save which boxes and goals to use for calculations
-        for (byte[] goalLoc: goalLocs) {
-            for (byte[] boxLoc: boxLocs) {
+        for (int[] goalLoc: goalLocs) {
+            for (int[] boxLoc: boxLocs) {
                 if (Arrays.equals(goalLoc, boxLoc)) {
                     noBoxLocs.remove(boxLoc);
                     noGoalLocs.remove(goalLoc);
@@ -280,14 +255,14 @@ public class GameState {
             return this.heuristic;
         // calculate the avg euclidian distance of each box
         // to each goal
-        for (byte[] boxLoc: noBoxLocs) {
+        for (int[] boxLoc: noBoxLocs) {
             double totalDistances = 0.0;
-            for (byte[] goalLoc: noGoalLocs) {
-                byte xb = boxLoc[0];
-                byte yb = boxLoc[1];
+            for (int[] goalLoc: noGoalLocs) {
+                int xb = boxLoc[0];
+                int yb = boxLoc[1];
 
-                byte xg = goalLoc[0];
-                byte yg = goalLoc[1];
+                int xg = goalLoc[0];
+                int yg = goalLoc[1];
 
                 double x2 = (xg-xb)*(xg-xb);
                 double y2 = (yg-yb)*(yg-yb);

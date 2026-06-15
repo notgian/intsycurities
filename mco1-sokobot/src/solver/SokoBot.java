@@ -8,8 +8,8 @@ import java.util.HashSet;
 public class SokoBot {
     public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
         try {
-            GameState initialState = new GameState(mapData, itemsData);
-            byte[][] goalLocs = initialState.getGoalLocs();
+            int[][] goalLocs = this.getGoalLocs(mapData);
+            GameState initialState = new GameState(itemsData, goalLocs);
 
             PriorityQueue<GameState> frontier = new PriorityQueue<>(new HeuristicsComparator());
             boolean solutionFound = false;
@@ -49,7 +49,7 @@ public class SokoBot {
                     actions = actions.concat("" + exploredState.getPrevAction());
                 
                 startTime = System.nanoTime();
-                solutionFound = exploredState.checkWinState();
+                solutionFound = exploredState.checkWinState(mapData, goalLocs);
                 if (solutionFound) {
                     System.out.println("lksdjglksdj!");
                     continue;
@@ -57,13 +57,13 @@ public class SokoBot {
                 checkWinTimeCum += System.nanoTime() - startTime;
 
                 startTime = System.nanoTime();
-                String validActions = exploredState.getValidActions();
+                String validActions = exploredState.getValidActions(mapData);
                 for (int i = 0; i < validActions.length(); i++) {
-                    GameState nextState = new GameState(exploredState.getMapData(), exploredState.getItemsData(), validActions.charAt(i));
+                    GameState nextState = new GameState(exploredState.getItemsData(), validActions.charAt(i), goalLocs);
                     nextState.setPredecessor(exploredState);
-                    nextState.setGoalLocs(goalLocs);
-                    // if (!explored.contains(nextState))
-                    frontier.add(nextState);
+
+                    if (!explored.contains(nextState))
+                        frontier.add(nextState);
                 }
                 getActionsTimeCum += System.nanoTime() - startTime;
 
@@ -106,5 +106,24 @@ public class SokoBot {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public int[][] getGoalLocs(char[][] mapData) {
+        ArrayList<int[]> goalLocsList = new ArrayList<int[]>();
+
+        int rows = mapData.length;
+        for (int i = 0; i<rows; i++) {
+            int cols = mapData[i].length;
+            for (int j = 0; j < cols; j++) {
+                if (mapData[i][j] == '.'){
+                    int[] loc = {i, j};
+                    goalLocsList.add(loc);
+                }
+            }
+        }
+        
+        int[][] locsList = new int[goalLocsList.size()][];
+        locsList = goalLocsList.toArray(locsList);
+        return locsList;
     }
 }
