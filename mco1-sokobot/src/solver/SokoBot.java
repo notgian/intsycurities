@@ -19,6 +19,13 @@ public class SokoBot {
             HashSet<GameState> explored = new HashSet<GameState>();
             GameState lastExplored = null;
             String actions = "";
+            
+            double exploreTimeCum = 0.0;
+            double checkWinTimeCum = 0.0;
+            double getActionsTimeCum = 0.0;
+
+            // For logging only. TODO: REMOVE
+            int skip = 10000;
 
             while (!frontier.isEmpty() && !solutionFound) {
                 // deque fronteir
@@ -26,30 +33,55 @@ public class SokoBot {
                 // add all valid actions to the frontier 
                 // repeat
                 
-                GameState exploredState = frontier.poll();
+                double startTime;
+               
+                startTime = System.nanoTime();
+                GameState exploredState;
+                do {
+                    exploredState = frontier.poll();
+                } while (explored.contains(exploredState));
+                
                 explored.add(exploredState);
+                exploreTimeCum += System.nanoTime() - startTime;
+
                 lastExplored = exploredState; 
                 if (exploredState.getPrevAction() != '\u0000')
                     actions = actions.concat("" + exploredState.getPrevAction());
                 
-
-                // Temporary only for DEBUGGING
-                // IMPORTANT TODO: DELETE THIS
-                if (explored.size() % 1000 == 0)
-                    System.out.println("Explored: %d".formatted(explored.size()));
-                //
-                
+                startTime = System.nanoTime();
                 solutionFound = exploredState.checkWinState();
-                if (solutionFound) continue;
+                if (solutionFound) {
+                    System.out.println("lksdjglksdj!");
+                    continue;
+                }
+                checkWinTimeCum += System.nanoTime() - startTime;
 
+                startTime = System.nanoTime();
                 String validActions = exploredState.getValidActions();
                 for (int i = 0; i < validActions.length(); i++) {
                     GameState nextState = new GameState(exploredState.getMapData(), exploredState.getItemsData(), validActions.charAt(i));
                     nextState.setPredecessor(exploredState);
                     nextState.setGoalLocs(goalLocs);
-                    if (!explored.contains(nextState))
-                        frontier.add(nextState);
+                    // if (!explored.contains(nextState))
+                    frontier.add(nextState);
                 }
+                getActionsTimeCum += System.nanoTime() - startTime;
+
+                // Temporary only for DEBUGGING
+                // IMPORTANT TODO: DELETE THIS
+                int size = explored.size();
+                if (size % skip == 0) {
+                    System.out.println("Explored: %d".formatted(size));
+                    System.out.println("Explore Time: %.2f ns (%.2f ns)".formatted(exploreTimeCum / skip, exploreTimeCum / skip / skip));
+                    System.out.println("Check Win Time: %.2f ns (%.2f ns)".formatted(checkWinTimeCum / skip, checkWinTimeCum / skip / skip));
+                    System.out.println("Get Actions Time: %.2f ns (%.2f ns)".formatted(getActionsTimeCum / skip, getActionsTimeCum / skip / skip));
+                    System.out.println("==================================");
+
+                    exploreTimeCum = 0.0;
+                    checkWinTimeCum = 0.0;
+                    getActionsTimeCum = 0.0;
+                }
+                
             }
             
             GameState curr = lastExplored;

@@ -40,10 +40,11 @@ import java.util.Arrays;
 public class GameState {
     private final char[][] mapData;
     private char[][] itemsData;
-    private char[][] prevItemsData = null;
     private char prevAction = '\u0000';
     private byte[][] goalLocs = null;
     private double heuristic = -1.0;
+    private String validActions = null;
+    private byte[] playerPos = null;
 
     private GameState predecessor = null;
 
@@ -56,12 +57,11 @@ public class GameState {
     /* Create a state using the current map state and then enact the action*/
     public GameState(char[][] mapData, char[][] itemsData, char action) throws Exception {
         this.mapData = mapData;
-        this.prevItemsData = deepCopyItems(itemsData);
         this.itemsData = deepCopyItems(itemsData);
         this.prevAction = action;
 
-        if (!this.getValidActions().contains("" + action))
-            throw new Exception("Action provided is not valid action for this state!");
+        // if (!this.getValidActions().contains("" + action))
+        //     throw new Exception("Action provided is not valid action for this state!");
 
         byte[] playerPos = this.getPlayerPos();
         byte pX = playerPos[0];
@@ -120,6 +120,9 @@ public class GameState {
 
     /* Returns zero-indexed player position as an array (x,y)*/
     public byte[] getPlayerPos() {
+        if (this.playerPos != null)
+            return this.playerPos;
+
         byte x = 0;
         byte y = 0;
         for (char[] row: this.itemsData) { for (char i: row) {
@@ -134,7 +137,8 @@ public class GameState {
         }
 
         byte[] ret = {-1, -1};
-        return ret;
+        this.playerPos = ret;
+        return this.playerPos;
     }
 
     /* Returns the valid actions in one contiguous string
@@ -142,7 +146,9 @@ public class GameState {
      *
      */
     public String getValidActions() {
-        String validActions = "";
+        if (this.validActions != null)
+            return this.validActions;
+        validActions = "";
 
         byte[] playerPos = this.getPlayerPos();
         byte pX = playerPos[0];
@@ -221,10 +227,6 @@ public class GameState {
         return this.prevAction;
     }
 
-    public char[][] getPrevItemsData() {
-        return this.prevItemsData;
-    }
-
     public void setPredecessor(GameState g) {
         this.predecessor = g;
     }
@@ -256,6 +258,7 @@ public class GameState {
     public double calculateHeuristic() {
         if (this.heuristic >= 0)
             return this.heuristic;
+        this.heuristic = 0.0;
 
         byte[][] boxLocs = this.getBoxLocations();
         byte[][] goalLocs = this.getGoalLocs();
