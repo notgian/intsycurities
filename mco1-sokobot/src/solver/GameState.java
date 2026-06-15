@@ -2,6 +2,7 @@ package solver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 /*
    Legend:
@@ -36,7 +37,7 @@ public class GameState {
     private String validActions = null;
 
     /* Create a state from a given map state */
-    public GameState(char[][] itemsData, int[] goalLocs) {
+    public GameState(char[][] itemsData, int[] goalLocs, HashSet<Integer> cornerDeadlocks) {
         this.mapWidth = itemsData[0].length;
 
         ArrayList<Integer> boxes = new ArrayList<>();
@@ -57,11 +58,11 @@ public class GameState {
         this.boxLocations = boxes.stream().mapToInt(i -> i).toArray();
 
         Arrays.sort(this.boxLocations);
-        calculateHeuristic(goalLocs);
+        calculateHeuristic(goalLocs, cornerDeadlocks);
     }
 
     /* Create a state using the previous state and then enact the action*/
-    public GameState(GameState prevState, char action, int[] goalLocs) throws Exception {
+    public GameState(GameState prevState, char action, int[] goalLocs, HashSet<Integer> cornerDeadlocks) throws Exception {
         if (this.validActions != null && !this.validActions.contains("" + action))
             throw new Exception("Action provided is not valid action for this state!");
 
@@ -91,7 +92,7 @@ public class GameState {
         }
 
         Arrays.sort(this.boxLocations);
-        calculateHeuristic(goalLocs);
+        calculateHeuristic(goalLocs, cornerDeadlocks);
     }
 
     /* Returns the valid actions in one contiguous string
@@ -153,11 +154,16 @@ public class GameState {
      * object's internal property
      *
      * */
-    public void calculateHeuristic(int[] goalLocs) {
+    public void calculateHeuristic(int[] goalLocs, HashSet<Integer> cornerDeadlocks) {
         if (this.heuristic != -1) return;
         this.heuristic = 0;
 
         for (int boxPos : boxLocations) {
+            if (cornerDeadlocks.contains(boxPos)) {
+                this.heuristic = 9999;
+                return;
+            }
+
             int xb = boxPos % mapWidth;
             int yb = boxPos / mapWidth;
 

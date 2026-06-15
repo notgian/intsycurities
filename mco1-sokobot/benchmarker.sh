@@ -3,6 +3,7 @@ find . -name "*.class" -type f -delete
 javac src/main/Driver.java -cp src
 
 declare -a MAPS=("threeboxes1" "threeboxes2" "threeboxes3" "fourboxes1" "fourboxes2" "fourboxes3" "fiveboxes1" "fiveboxes2" "fiveboxes3" "original1" "original2" "original3" "testlevel")
+# declare -a MAPS=("original1" "original2" "original3")
 
 benchmark_file='benchmarks'
 
