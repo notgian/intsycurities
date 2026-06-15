@@ -8,7 +8,7 @@ import java.util.HashSet;
 public class SokoBot {
     public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
         try {
-            int[][] goalLocs = this.getGoalLocs(mapData);
+            int[] goalLocs = this.getGoalLocs(mapData);
             GameState initialState = new GameState(itemsData, goalLocs);
 
             PriorityQueue<GameState> frontier = new PriorityQueue<>(new HeuristicsComparator());
@@ -19,10 +19,6 @@ public class SokoBot {
             HashSet<GameState> explored = new HashSet<GameState>();
             GameState lastExplored = null;
             String actions = "";
-            
-            double exploreTimeCum = 0.0;
-            double checkWinTimeCum = 0.0;
-            double getActionsTimeCum = 0.0;
 
             // For logging only. TODO: REMOVE
             int skip = 10000;
@@ -42,7 +38,6 @@ public class SokoBot {
                 } while (explored.contains(exploredState));
                 
                 explored.add(exploredState);
-                exploreTimeCum += System.nanoTime() - startTime;
 
                 lastExplored = exploredState; 
                 if (exploredState.getPrevAction() != '\u0000')
@@ -54,33 +49,22 @@ public class SokoBot {
                     System.out.println("lksdjglksdj!");
                     continue;
                 }
-                checkWinTimeCum += System.nanoTime() - startTime;
 
                 startTime = System.nanoTime();
                 String validActions = exploredState.getValidActions(mapData);
                 for (int i = 0; i < validActions.length(); i++) {
-                    GameState nextState = new GameState(exploredState.getItemsData(), validActions.charAt(i), goalLocs);
+                    GameState nextState = new GameState(exploredState, validActions.charAt(i), goalLocs);
                     nextState.setPredecessor(exploredState);
 
                     if (!explored.contains(nextState))
                         frontier.add(nextState);
                 }
-                getActionsTimeCum += System.nanoTime() - startTime;
 
                 // Temporary only for DEBUGGING
                 // IMPORTANT TODO: DELETE THIS
                 int size = explored.size();
-                if (size % skip == 0) {
+                if (size % skip == 0) 
                     System.out.println("Explored: %d".formatted(size));
-                    System.out.println("Explore Time: %.2f ns (%.2f ns)".formatted(exploreTimeCum / skip, exploreTimeCum / skip / skip));
-                    System.out.println("Check Win Time: %.2f ns (%.2f ns)".formatted(checkWinTimeCum / skip, checkWinTimeCum / skip / skip));
-                    System.out.println("Get Actions Time: %.2f ns (%.2f ns)".formatted(getActionsTimeCum / skip, getActionsTimeCum / skip / skip));
-                    System.out.println("==================================");
-
-                    exploreTimeCum = 0.0;
-                    checkWinTimeCum = 0.0;
-                    getActionsTimeCum = 0.0;
-                }
                 
             }
             
@@ -108,22 +92,19 @@ public class SokoBot {
         return "";
     }
 
-    public int[][] getGoalLocs(char[][] mapData) {
-        ArrayList<int[]> goalLocsList = new ArrayList<int[]>();
+    public int[] getGoalLocs(char[][] mapData) {
+        ArrayList<Integer> goalLocsList = new ArrayList<Integer>();
 
         int rows = mapData.length;
         for (int i = 0; i<rows; i++) {
             int cols = mapData[i].length;
             for (int j = 0; j < cols; j++) {
                 if (mapData[i][j] == '.'){
-                    int[] loc = {i, j};
-                    goalLocsList.add(loc);
+                    goalLocsList.add( (i * cols) + j);
                 }
             }
         }
         
-        int[][] locsList = new int[goalLocsList.size()][];
-        locsList = goalLocsList.toArray(locsList);
-        return locsList;
+        return goalLocsList.stream().mapToInt(i -> i).toArray();
     }
 }
