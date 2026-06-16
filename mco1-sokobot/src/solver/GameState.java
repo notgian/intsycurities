@@ -24,18 +24,22 @@ import java.util.HashSet;
  * A class to represent a state of the game with auxilliary functions.
  */
 public class GameState {
-    // private char[][] itemsData;
     private int[] boxLocations; // flattened array: (y * mapWidth) + x
     private int playerPos; // flattened array: (y * mapWidth) + x
     private int mapWidth;
 
     // Cached results
-    private char prevAction = '\u0000';
     private int heuristic = -1;
     private GameState predecessor = null;
     private boolean isDeadlocked = false;
 
-    private String validActions = null;
+    private int prevAction = -1;
+    private int validActions = -1;
+
+    public static final int MOVE_LEFT  = 0b1000;
+    public static final int MOVE_RIGHT = 0b0100;
+    public static final int MOVE_UP    = 0b0010;
+    public static final int MOVE_DOWN  = 0b0001;
 
     /* Create a state from a given map state */
     public GameState(char[][] itemsData, int[] goalLocs, DeadlockContext deadlockContext) {
@@ -63,8 +67,8 @@ public class GameState {
     }
 
     /* Create a state using the previous state and then enact the action*/
-    public GameState(GameState prevState, char action, int[] goalLocs, DeadlockContext deadlockContext) throws Exception {
-        if (this.validActions != null && !this.validActions.contains("" + action))
+    public GameState(GameState prevState, int action, int[] goalLocs, DeadlockContext deadlockContext) throws Exception {
+        if (this.validActions != -1 && !((this.validActions & action) == action))
             throw new Exception("Action provided is not valid action for this state!");
         this.mapWidth = prevState.mapWidth;
         this.prevAction = action;
@@ -72,8 +76,8 @@ public class GameState {
         int prevPlayerX = prevState.playerPos % mapWidth;
         int prevPlayerY = prevState.playerPos / mapWidth;
 
-        int dX = action == 'l' ? -1 : action == 'r' ? 1 : 0;
-        int dY = action == 'u' ? -1 : action == 'd' ? 1 : 0;
+        int dX = action == GameState.MOVE_LEFT ? -1 : action == GameState.MOVE_RIGHT ? 1 : 0;
+        int dY = action == GameState.MOVE_UP ? -1 : action == GameState.MOVE_DOWN ? 1 : 0;
 
         int newPlayerX = prevPlayerX + dX;
         int newPlayerY = prevPlayerY + dY;
@@ -98,10 +102,11 @@ public class GameState {
      * i.e lud, lr, ud
      *
      */
-    public String getValidActions(char[][] mapData) {
-        if (this.validActions != null)
+    public int getValidActions(char[][] mapData) {
+        if (this.validActions != -1)
             return this.validActions;
-        validActions = "";
+        validActions = 0;
+
         int pX = this.playerPos % this.mapWidth;
         int pY = this.playerPos / this.mapWidth;
         int mapLen = (int) mapData[0].length;
@@ -111,20 +116,20 @@ public class GameState {
         // or:    left to player is not wall AND not box.
         if ( (pX > 1 && hasBoxInTile(pX-1, pY) && mapData[pY][pX-2] != '#' && !hasBoxInTile(pX-2, pY)) ||
              (pX > 0 && mapData[pY][pX-1] != '#' && !hasBoxInTile(pX-1, pY)) )
-            validActions = validActions.concat("l");
+            this.validActions |= GameState.MOVE_LEFT;
         // Check right validity
         if ( (pX < mapLen-2 && hasBoxInTile(pX+1, pY) && mapData[pY][pX+2] != '#' && !hasBoxInTile(pX+2, pY)) ||
              (pX < mapLen-1 && mapData[pY][pX+1] != '#' && !hasBoxInTile(pX+1, pY)) )
-            validActions = validActions.concat("r");
+            this.validActions |= GameState.MOVE_RIGHT;
         // Check up validity
         if ( (pY > 1 && hasBoxInTile(pX, pY-1) && mapData[pY-2][pX] != '#' && !hasBoxInTile(pX, pY-2)) ||
              (pY > 0 && mapData[pY-1][pX] != '#' && !hasBoxInTile(pX, pY-1)) )
-            validActions = validActions.concat("u");
+            this.validActions |= GameState.MOVE_UP;
         // Check down validity
         if ( (pY < mapHgt-2 && hasBoxInTile(pX, pY+1) && mapData[pY+2][pX] != '#' && !hasBoxInTile(pX, pY+2)) ||
              (pY < mapHgt-1 && mapData[pY+1][pX] != '#' && !hasBoxInTile(pX, pY+1)) )
-            validActions = validActions.concat("d");
-        return validActions;
+            this.validActions |= GameState.MOVE_DOWN;
+        return this.validActions;
     }
     
     /*
@@ -253,11 +258,10 @@ public class GameState {
         return Arrays.binarySearch(this.boxLocations, pos1D) >= 0;
     }
 
-
     // Ordinary getters and setters
     public int getPlayerPos() { return this.playerPos; }
     public int[] getBoxLocations() { return this.boxLocations; }
-    public char getPrevAction() { return this.prevAction; }
+    public int getPrevAction() { return this.prevAction; }
     public GameState getPredecessor() { return this.predecessor; }
     public void setPredecessor(GameState g) { this.predecessor = g; }
     public int getHeuristics() { return this.heuristic; }

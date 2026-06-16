@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-
 import java.util.HashSet;
+
 
 public class SokoBot {
     public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
@@ -25,6 +25,8 @@ public class SokoBot {
             HashSet<GameState> explored = new HashSet<GameState>();
             GameState lastExplored = null;
 
+            int[] directions = { GameState.MOVE_LEFT, GameState.MOVE_RIGHT, GameState.MOVE_UP, GameState.MOVE_DOWN };
+
             while (!frontier.isEmpty() && !solutionFound) {
                 // deque fronteir
                 // get valid actions
@@ -39,9 +41,14 @@ public class SokoBot {
                 explored.add(exploredState);
                 lastExplored = exploredState; 
                 
-                String validActions = exploredState.getValidActions(mapData);
-                for (int i = 0; i < validActions.length(); i++) {
-                    GameState nextState = new GameState(exploredState, validActions.charAt(i), goalLocs, deadlockContext);
+                int validActions = exploredState.getValidActions(mapData);
+                for (int action : directions) {
+                    // Isolate the bit directly
+                    if ((validActions & action) == 0) {
+                        continue;
+                    }
+
+                    GameState nextState = new GameState(exploredState, action, goalLocs, deadlockContext);
                     nextState.setPredecessor(exploredState);
 
                     if (nextState.checkWinState(mapData, goalLocs)) {
@@ -61,15 +68,29 @@ public class SokoBot {
             boolean done = false;
             
             while (!done) {
-                Character prevAction = curr.getPrevAction();
-                if (prevAction != '\u0000')
-                    actions = prevAction + actions;
+                int prevAction = curr.getPrevAction();
+                if (prevAction == -1) {
+                    done = true;
+                    continue;
+                }
+
+                char prevActionChar = '\0';
+                switch (prevAction) {
+                    case GameState.MOVE_LEFT:  prevActionChar = 'l'; break;
+                    case GameState.MOVE_RIGHT: prevActionChar = 'r'; break;
+                    case GameState.MOVE_UP:    prevActionChar = 'u'; break;
+                    case GameState.MOVE_DOWN:  prevActionChar = 'd'; break;
+                }
+
+                actions = prevActionChar + actions;
+
                 curr = curr.getPredecessor();
                 if (curr == null) {
                     done = true;
                     continue;
                 }
             }
+            System.out.println("SOLUTION FOUND!");
             return actions;
         }
         catch (Exception e) {
