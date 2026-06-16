@@ -9,16 +9,16 @@ import java.util.HashSet;
 public class DeadlockContext {
     private final HashSet<Integer> cornerDeadlocks;
     private final HashSet<Integer> twoBoxDeadlocks;
-    // private final HashSet<Integer> fourBoxDeadlocks;
+    private final HashSet<Long> fourBoxDeadlocks;
 
-    public DeadlockContext(HashSet<Integer> cornerDeadlocks, HashSet<Integer> twoBoxDeadlocks) {
+    public DeadlockContext(HashSet<Integer> cornerDeadlocks, HashSet<Integer> twoBoxDeadlocks, HashSet<Long> fourBoxDeadlocks) {
         this.cornerDeadlocks = cornerDeadlocks;
         this.twoBoxDeadlocks = twoBoxDeadlocks;
-        // this.fourBoxDeadlocks= fourBoxDeadlocks;
+        this.fourBoxDeadlocks = fourBoxDeadlocks;
     }
 
     // Getters for individual sets if your heuristic evaluation requires them
     public HashSet<Integer> getCornerDeadlocks() { return this.cornerDeadlocks; }
     public HashSet<Integer> getTwoBoxDeadlocks() { return this.twoBoxDeadlocks; }
-    // public HashSet<Integer> getFourBoxDeadlocks() { return this.fourBoxDeadlocks; }
+    public HashSet<Long> getFourBoxDeadlocks() { return this.fourBoxDeadlocks; }
 }

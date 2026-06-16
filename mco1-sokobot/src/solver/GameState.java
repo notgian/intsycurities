@@ -33,6 +33,7 @@ public class GameState {
     private char prevAction = '\u0000';
     private int heuristic = -1;
     private GameState predecessor = null;
+    private boolean isDeadlocked = false;
 
     private String validActions = null;
 
@@ -65,7 +66,6 @@ public class GameState {
     public GameState(GameState prevState, char action, int[] goalLocs, DeadlockContext deadlockContext) throws Exception {
         if (this.validActions != null && !this.validActions.contains("" + action))
             throw new Exception("Action provided is not valid action for this state!");
-
         this.mapWidth = prevState.mapWidth;
         this.prevAction = action;
 
@@ -78,7 +78,6 @@ public class GameState {
         int newPlayerX = prevPlayerX + dX;
         int newPlayerY = prevPlayerY + dY;
         this.playerPos = (newPlayerY * mapWidth) + newPlayerX;
-
         this.boxLocations = new int[prevState.boxLocations.length];
 
         for (int i = 0; i < prevState.boxLocations.length; i++) {
@@ -103,20 +102,16 @@ public class GameState {
         if (this.validActions != null)
             return this.validActions;
         validActions = "";
-
         int pX = this.playerPos % this.mapWidth;
         int pY = this.playerPos / this.mapWidth;
-
         int mapLen = (int) mapData[0].length;
         int mapHgt = (int) mapData.length;
-
         // Check left validity
         // Either: left to player is box AND square left of box is not wall AND not box,
         // or:    left to player is not wall AND not box.
         if ( (pX > 1 && hasBoxInTile(pX-1, pY) && mapData[pY][pX-2] != '#' && !hasBoxInTile(pX-2, pY)) ||
              (pX > 0 && mapData[pY][pX-1] != '#' && !hasBoxInTile(pX-1, pY)) )
             validActions = validActions.concat("l");
-
         // Check right validity
         if ( (pX < mapLen-2 && hasBoxInTile(pX+1, pY) && mapData[pY][pX+2] != '#' && !hasBoxInTile(pX+2, pY)) ||
              (pX < mapLen-1 && mapData[pY][pX+1] != '#' && !hasBoxInTile(pX+1, pY)) )
@@ -129,7 +124,6 @@ public class GameState {
         if ( (pY < mapHgt-2 && hasBoxInTile(pX, pY+1) && mapData[pY+2][pX] != '#' && !hasBoxInTile(pX, pY+2)) ||
              (pY < mapHgt-1 && mapData[pY+1][pX] != '#' && !hasBoxInTile(pX, pY+1)) )
             validActions = validActions.concat("d");
-
         return validActions;
     }
     
@@ -157,28 +151,26 @@ public class GameState {
     public void calculateHeuristic(int[] goalLocs, DeadlockContext deadlockContext) {
         if (this.heuristic != -1) return;
         this.heuristic = 0;
-
         int boxCount = this.boxLocations.length;
         for (int i = 0; i < boxCount; i++) {
             int boxPos = this.boxLocations[i];
-
             // Check corner deadlocks
             if (deadlockContext.getCornerDeadlocks().contains(boxPos)) {
-                this.heuristic = 9999;
+                this.heuristic = 999999;
+                this.isDeadlocked = true;
                 return;
             }
-
-            // Check horizontal adjacency deadlocks
+            // Check 2-box horizontal adjacency deadlocks
             if (i < boxCount-1) {
                 int nextBoxPos = this.boxLocations[i+1];
                 if (nextBoxPos / this.mapWidth == boxPos / this.mapWidth &&
                         deadlockContext.getTwoBoxDeadlocks().contains((boxPos << 16) | (nextBoxPos & 0xFFFF)) ) {
-                    this.heuristic = 9999;
+                    this.heuristic = 999999;
+                    this.isDeadlocked = true;
                     return;
                 }
             }
-            
-            // Check vertical adjacency deadlocks
+            // Check 2-box vertical adjacency deadlocks
             if (i < boxCount-1) {
                 int nextBoxPos = -1;
                 int boxCol = boxPos % this.mapWidth;
@@ -190,16 +182,57 @@ public class GameState {
                     }
                 }
                 if (nextBoxPos != -1 && deadlockContext.getTwoBoxDeadlocks().contains((boxPos << 16) | (nextBoxPos & 0xFFFF)) ) {
-                    this.heuristic = 9999;
+                    this.heuristic = 999999;
+                    this.isDeadlocked = true;
                     return;
+                }
+            }
+
+            // Check 4-box deadlocks
+            if (i < boxCount-3) {
+                int box2 = this.boxLocations[i+1];
+                int box2Col = boxPos % this.mapWidth;
+                int boxCol = boxPos % this.mapWidth;
+                int boxRow = boxPos / this.mapWidth;
+                // skip if next box is not adjacent and
+                // box is not on the last column
+                if (box2 != boxPos+1 && boxCol == this.mapWidth-1)
+                    continue;
+                int box3 = -1;
+                int box4 = -1;
+                for (int j = i+2; j < boxCount; j++) {
+                    int currBox = this.boxLocations[j];
+                    int currBoxCol = currBox % this.mapWidth;
+                    int currBoxRow = currBox / this.mapWidth;
+                    if (currBoxRow > boxRow+1 || (box3 > -1 && box4 > -1)) {
+                        j = boxCount;
+                        continue;
+                    }
+                    if (currBoxCol == boxCol && currBoxRow == boxRow+1) {
+                        box3 = currBox;
+                    }
+                    else if (currBoxCol == box2Col && currBoxRow == boxRow+1) {
+                        box4 = currBox;
+                    }
+                }
+                
+                if (box3 > -1 && box4 > -1) {
+                    long pos1 = (boxPos & 0xFFFFl) << 48;
+                    long pos2 = (box2 & 0xFFFFl) << 32;
+                    long pos3 = (box3 & 0xFFFFl) << 16;
+                    long pos4 = (box4 & 0xFFFFl);
+                    long packedPos = pos1 | pos2 | pos3 | pos4;
+                    if (deadlockContext.getFourBoxDeadlocks().contains(packedPos)) {
+                        this.heuristic = 999999;
+                        this.isDeadlocked = true;
+                        return;
+                    }
                 }
             }
 
             int xb = boxPos % mapWidth;
             int yb = boxPos / mapWidth;
-
             int minDistance = Integer.MAX_VALUE;
-
             for (int goalPos : goalLocs) {
                 int xg = goalPos % mapWidth;
                 int yg = goalPos / mapWidth;
@@ -228,13 +261,13 @@ public class GameState {
     public GameState getPredecessor() { return this.predecessor; }
     public void setPredecessor(GameState g) { this.predecessor = g; }
     public int getHeuristics() { return this.heuristic; }
+    public boolean isDeadlocked() { return this.isDeadlocked; }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof GameState)) return false;
         GameState gs = (GameState) o;
-
         return this.playerPos == gs.playerPos && Arrays.equals(this.boxLocations, gs.boxLocations);
     }
 
