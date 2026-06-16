@@ -63,7 +63,6 @@ public class GameState {
         this.boxLocations = boxes.stream().mapToInt(i -> i).toArray();
 
         Arrays.sort(this.boxLocations);
-        calculateHeuristic(goalLocs, deadlockContext);
     }
 
     /* Create a state using the previous state and then enact the action*/
@@ -95,7 +94,6 @@ public class GameState {
         }
 
         Arrays.sort(this.boxLocations);
-        calculateHeuristic(goalLocs, deadlockContext);
     }
 
     /* Returns the valid actions in one contiguous string
@@ -147,32 +145,24 @@ public class GameState {
         }
         return true;
     }
-    
-    /* 
-     * Calculates the heuristic value and sets the
-     * object's internal property
-     *
-     * */
-    public void calculateHeuristic(int[] goalLocs, DeadlockContext deadlockContext) {
-        if (this.heuristic != -1) return;
-        this.heuristic = 0;
+
+
+    public boolean checkDeadlock(int[] goalLocs, DeadlockContext deadlockContext) {
         int boxCount = this.boxLocations.length;
         for (int i = 0; i < boxCount; i++) {
             int boxPos = this.boxLocations[i];
             // Check corner deadlocks
             if (deadlockContext.getCornerDeadlocks().contains(boxPos)) {
-                this.heuristic = 999999;
                 this.isDeadlocked = true;
-                return;
+                return this.isDeadlocked;
             }
             // Check 2-box horizontal adjacency deadlocks
             if (i < boxCount-1) {
                 int nextBoxPos = this.boxLocations[i+1];
                 if (nextBoxPos / this.mapWidth == boxPos / this.mapWidth &&
                         deadlockContext.getTwoBoxDeadlocks().contains((boxPos << 16) | (nextBoxPos & 0xFFFF)) ) {
-                    this.heuristic = 999999;
                     this.isDeadlocked = true;
-                    return;
+                    return this.isDeadlocked;
                 }
             }
             // Check 2-box vertical adjacency deadlocks
@@ -187,9 +177,8 @@ public class GameState {
                     }
                 }
                 if (nextBoxPos != -1 && deadlockContext.getTwoBoxDeadlocks().contains((boxPos << 16) | (nextBoxPos & 0xFFFF)) ) {
-                    this.heuristic = 999999;
                     this.isDeadlocked = true;
-                    return;
+                    return this.isDeadlocked;
                 }
             }
 
@@ -228,12 +217,32 @@ public class GameState {
                     long pos4 = (box4 & 0xFFFFl);
                     long packedPos = pos1 | pos2 | pos3 | pos4;
                     if (deadlockContext.getFourBoxDeadlocks().contains(packedPos)) {
-                        this.heuristic = 999999;
                         this.isDeadlocked = true;
-                        return;
+                        return this.isDeadlocked;
                     }
                 }
             }
+        }
+        this.isDeadlocked = false;
+        return this.isDeadlocked;
+    }
+    
+    /* 
+     * Calculates the heuristic value and sets the
+     * object's internal property
+     *
+     * */
+    public void calculateHeuristic(int[] goalLocs, DeadlockContext deadlockContext) {
+        if (this.heuristic != -1) 
+            return;
+        if (this.isDeadlocked) {
+            this.heuristic = 99999999;
+            return;
+        }
+        this.heuristic = 0;
+        int boxCount = this.boxLocations.length;
+        for (int i = 0; i < boxCount; i++) {
+            int boxPos = this.boxLocations[i];
 
             int xb = boxPos % mapWidth;
             int yb = boxPos / mapWidth;

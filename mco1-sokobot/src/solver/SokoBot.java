@@ -57,8 +57,13 @@ public class SokoBot {
                         continue;
                     }
 
-                    if (!nextState.isDeadlocked() && !explored.contains(nextState))
-                        frontier.add(nextState);
+                    if (explored.contains(nextState))
+                        continue;
+                    nextState.checkDeadlock(goalLocs, deadlockContext);
+                    if (nextState.isDeadlocked())
+                        continue;
+                    nextState.calculateHeuristic(goalLocs, deadlockContext);
+                    frontier.add(nextState);
                 }
             }
             
