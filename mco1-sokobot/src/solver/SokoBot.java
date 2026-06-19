@@ -95,7 +95,6 @@ public class SokoBot {
                     continue;
                 }
             }
-            System.out.println("SOLUTION FOUND!");
             return actions;
         }
         catch (Exception e) {
