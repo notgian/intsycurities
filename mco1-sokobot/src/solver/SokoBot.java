@@ -23,9 +23,15 @@ public class SokoBot {
             boolean solutionFound = false;
 
             HashSet<GameState> explored = new HashSet<GameState>();
+            HashSet<GameState> pruned = new HashSet<GameState>();
             GameState lastExplored = null;
 
-            int[] directions = { GameState.MOVE_LEFT, GameState.MOVE_RIGHT, GameState.MOVE_UP, GameState.MOVE_DOWN };
+            int[] directions = { 
+                GameState.MOVE_LEFT,
+                GameState.MOVE_RIGHT, 
+                GameState.MOVE_UP, 
+                GameState.MOVE_DOWN 
+            };
 
             while (!frontier.isEmpty() && !solutionFound) {
                 // deque fronteir
@@ -36,7 +42,7 @@ public class SokoBot {
                 GameState exploredState;
                 do {
                     exploredState = frontier.poll();
-                } while (explored.contains(exploredState) && exploredState != null);
+                } while (explored.contains(exploredState) && exploredState != null && pruned.contains(exploredState));
 
                 explored.add(exploredState);
                 lastExplored = exploredState; 
@@ -57,11 +63,17 @@ public class SokoBot {
                         continue;
                     }
 
-                    if (explored.contains(nextState))
+                    if (pruned.contains(nextState))
                         continue;
+                    if (explored.contains(nextState)) {
+                        pruned.add(nextState);
+                        continue;
+                    }
                     nextState.checkDeadlock(goalLocs, deadlockContext);
-                    if (nextState.isDeadlocked())
+                    if (nextState.isDeadlocked()) {
+                        pruned.add(nextState);
                         continue;
+                    }
                     nextState.calculateHeuristic(goalLocs, deadlockContext);
                     frontier.add(nextState);
                 }
@@ -98,7 +110,7 @@ public class SokoBot {
             return actions;
         }
         catch (Exception e) {
-            System.out.println("Smth shit itself");
+            System.out.println("Smth sh!t itself");
             e.printStackTrace();
         }
         return "";
