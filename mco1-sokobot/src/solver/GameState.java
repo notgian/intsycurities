@@ -241,7 +241,6 @@ public class GameState {
         }
         this.heuristic = 0;
         int boxCount = this.boxLocations.length;
-        int unsolvedCount = 0;
         for (int i = 0; i < boxCount; i++) {
             int boxPos = this.boxLocations[i];
 
@@ -259,9 +258,7 @@ public class GameState {
             if (minDistance == 0)
                 continue;
             this.heuristic += minDistance;
-            unsolvedCount += 1;
         }
-        this.heuristic += unsolvedCount * this.mapWidth/2;
     }
 
     public boolean hasBoxInTile(int x, int y) {
