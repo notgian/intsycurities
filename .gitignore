@@ -2,6 +2,8 @@
 **.class
 **/*.class
 
+**.zip
+
 # Log file
 *.log
 
