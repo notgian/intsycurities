@@ -9,7 +9,7 @@ Model training and feature extraction should be implemented in a separate script
 """
 
 import os
-import pickle
+import cloudpickle as pickle
 import pandas as pd
 from typing import List
 
