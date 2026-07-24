@@ -28,16 +28,22 @@ case "$CHOICE" in
         FILENAME="mco2.zip"
         TEMPDIR="mco2"
         echo "Zipping up mco2 files..."
-        mkdir $TEMPDIR
-        cp "./mco2-pinoybot/requirements.txt" $TEMPDIR
-        cp "./mco2-pinoybot/pinoybot.py" $TEMPDIR
-        cp "./mco2-pinoybot/extractor.py" $TEMPDIR
-        cp "./mco2-pinoybot/pinoybot_model_pipeline.pk1" $TEMPDIR
-        cd ./$TEMPDIR
-        zip -r $FILENAME *
+        cd './mco2-pinoybot'
+
+        zip -r $FILENAME .
         mv $FILENAME ..
+        
         cd ..
-        rm -r $TEMPDIR
+        # mkdir $TEMPDIR
+        # cp "./mco2-pinoybot/requirements.txt" $TEMPDIR
+        # cp "./mco2-pinoybot/pinoybot.py" $TEMPDIR
+        # cp "./mco2-pinoybot/extractor.py" $TEMPDIR
+        # cp "./mco2-pinoybot/pinoybot_model_pipeline.pk1" $TEMPDIR
+        # cd ./$TEMPDIR
+        # zip -r $FILENAME *
+        # mv $FILENAME ..
+        # cd ..
+        # rm -r $TEMPDIR
         echo "file stored in $(pwd)/$FILENAME"
         ;;
     3)
