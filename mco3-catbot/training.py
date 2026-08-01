@@ -3,6 +3,7 @@ import time
 from typing import Dict
 import numpy as np
 import pygame
+import random
 from utility import play_q_table
 from cat_env import make_env
 #############################################################################
@@ -42,6 +43,9 @@ def train_bot(cat_name, render: int = -1):
     learning_rate = 0.5
     discount_factor = 0.9
 
+    epsilon = 0.95
+    epsilon_decay = 0.99
+    epsilon_min = 0.05
     
     #############################################################################
     # END OF YOUR CODE. DO NOT MODIFY ANYTHING BEYOND THIS LINE.                #
@@ -63,11 +67,13 @@ def train_bot(cat_name, render: int = -1):
         done = False
 
         while not done:
-            # choose action
-            if np.max(q_table[state]) > 0: 
-                action = np.argmax(q_table[state])
-            else:
+            if random.random() < epsilon or np.max(q_table[state]) == 0:
                 action = env.action_space.sample()
+            else:
+                action = np.argmax(q_table[state])
+
+            if epsilon > epsilon_min:
+                epsilon *= epsilon_decay
             
             # take next step
             new_state, reward, terminated, truncated, info = env.step(action)
