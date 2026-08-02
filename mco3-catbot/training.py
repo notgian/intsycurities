@@ -44,7 +44,7 @@ def train_bot(cat_name, render: int = -1):
     discount_factor = 0.9
 
     epsilon = 0.95
-    epsilon_decay = 0.99
+    epsilon_decay = 0.999
     epsilon_min = 0.05
     
     #############################################################################
