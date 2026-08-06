@@ -1,0 +1,294 @@
+,sentence_id,word_id,sentence,word,annotation_0,annotation_1
+89,7,89,"Kung totoong may ibang tao na nagkanulo sa Diyos , tiyak na lubhang nasasaktan at nagdadalamhati ngayon ang Diyos , at dapat kong subukan ngayong aliwin ang puso ng Diyos sa pamamagitan ng aking sariling katapatan .",Diyos,OTH,FIL
+99,7,99,"Kung totoong may ibang tao na nagkanulo sa Diyos , tiyak na lubhang nasasaktan at nagdadalamhati ngayon ang Diyos , at dapat kong subukan ngayong aliwin ang puso ng Diyos sa pamamagitan ng aking sariling katapatan .",Diyos,OTH,FIL
+110,7,110,"Kung totoong may ibang tao na nagkanulo sa Diyos , tiyak na lubhang nasasaktan at nagdadalamhati ngayon ang Diyos , at dapat kong subukan ngayong aliwin ang puso ng Diyos sa pamamagitan ng aking sariling katapatan .",Diyos,OTH,FIL
+123,8,123,patapos na yung buwan ng oct,oct,OTH,ENG
+148,9,148,""" Ask ko lang sana if hindi ako nakakaistorbo sa pagbabasa mo "" "" Yes ok lang naman "" "" Bakit ba ang daming fangirls nila ?",fangirls,FIL,ENG
+168,10,168,KoLab : Komunidad Laban sa COVID ang isa ring programang inilunsad ngayong linggo at sinimulan ito sa Naga City .,Naga,OTH,FIL
+177,12,177,MagpaGA na lang kaya ako ng bigas para sa birthday ni Woozi ?,MagpaGA,FIL,CS
+206,13,206,Nakaparada umano ang kotse ni Hilario nang magsidatingan ang mga suspek na lulan ng puting Isuzu Crosswind ( XYF - 188 ) at maroon na Honda City ( NCV - 9054 ) .,Crosswind,OTH,ENG
+316,18,316,"Patay ang dalawang big-time drug pusher habang tinatayang nasa 31 kilo ng shabu na nagkakahalaga ng P210 milyon ang nasamsam sa mga ito , matapos ang buy-bust operation ng Philippine National Police-Drug Enforcement Group ( PDEG ) sa Las Pinas City , Martes ng gabi .",shabu,OTH,FIL
+422,22,422,"Matthew Manotoc , isang 22-anyos ang pasyente at mula sa Barangay Duripes sa bayan ng Bacarra .",Barangay,FIL,OTH
+456,24,456,"Ra ulo ka Leo ikaw na nga ginawan ng favor , ikaw pa ang nang ggalaiti sa glitany tym pwd ka nyan ilaglag , wala na rin nman yan kay Franco ikaw dami mawwala sayo , kulong kapa",glitany,ENG,OTH
+457,24,457,"Ra ulo ka Leo ikaw na nga ginawan ng favor , ikaw pa ang nang ggalaiti sa glitany tym pwd ka nyan ilaglag , wala na rin nman yan kay Franco ikaw dami mawwala sayo , kulong kapa",tym,ENG,OTH
+499,26,499,malapit ko ng makalbo si mama huhu jennie bat ang ganda,mama,ENG,FIL
+510,27,510,"Balita lang , d sapat yan , maniniwala ang pamilya na pinatay nya kung cla mismo ang makakakita na tutuong patay na , para makamit ang hostisya , d maniniwala mga tao na patay na ,",yan,FIL,ENG
+576,29,576,"Sa salaysay ng testigong si Frenciss Ruby , dating kinakasama ng suspek , bago ang krimen ay patungo umano siya sa isang common comfort room sa naturang lugar , nang makita si Ortillo na kasama ang isang alyas John Dapulag .",isang,FIL,
+642,31,642,"Napakainit ng pagtanggap ng mga residente ng Lupang Pangako sa Barangay Payatas , Quezon City kay Vice Presidential aspirant Mayor Inday Sara Duterte sa kanyang pagbisita sa nasabing lugar .",Lupang,FIL,OTH
+643,31,643,"Napakainit ng pagtanggap ng mga residente ng Lupang Pangako sa Barangay Payatas , Quezon City kay Vice Presidential aspirant Mayor Inday Sara Duterte sa kanyang pagbisita sa nasabing lugar .",Pangako,FIL,OTH
+645,31,645,"Napakainit ng pagtanggap ng mga residente ng Lupang Pangako sa Barangay Payatas , Quezon City kay Vice Presidential aspirant Mayor Inday Sara Duterte sa kanyang pagbisita sa nasabing lugar .",Barangay,FIL,OTH
+646,31,646,"Napakainit ng pagtanggap ng mga residente ng Lupang Pangako sa Barangay Payatas , Quezon City kay Vice Presidential aspirant Mayor Inday Sara Duterte sa kanyang pagbisita sa nasabing lugar .",Payatas,FIL,OTH
+654,31,654,"Napakainit ng pagtanggap ng mga residente ng Lupang Pangako sa Barangay Payatas , Quezon City kay Vice Presidential aspirant Mayor Inday Sara Duterte sa kanyang pagbisita sa nasabing lugar .",Mayor,ENG,OTH
+711,33,711,"Sagot nya po na mangutang daw po ako sa mga kaibigan ko po kasi baka wla na yung TV na yun tapos sayang daw kasi sale po , nangutang pa ako para mkadown ng TV .",TV,OTH,ENG
+727,33,727,"Sagot nya po na mangutang daw po ako sa mga kaibigan ko po kasi baka wla na yung TV na yun tapos sayang daw kasi sale po , nangutang pa ako para mkadown ng TV .",TV,OTH,ENG
+743,35,743,Baka meron dumalaw sa akin at wag kayo mag skip ng .,mag,OTH,FIL
+771,36,771,"Ang sangkatauhan ay hindi na malungkot ; sa lupa , hindi na dumadaing ang mga tao sa pagiging walang kabuluhan ng buhay , at humihinto mula sa lahat ng pakikitungo sa buhay .",humihinto,ENG,FIL
+805,38,805,Nakikiisa kami sa KWF sa adhikain nitong linangin at palaganapin ang paggamit ng wikang Filipino sa bansa .,Filipino,OTH,FIL
+823,39,823,Tinanggap ng mga Romano ang maraming bathalang Griyego ngunit binigyan ng karampatang pangalan sa Latin .,Latin,ENG,OTH
+827,40,827,bwisit ka shoma dahil sayo di ako makapagkape,shoma,OTH,FIL
+899,45,899,"sobra na talaga kalamidad na dumarating sa ating bansa , kawawa nman mga kababayan ko , patuloy tayo manalig sa Dios mga kabayan , kc wala na takot sa Dios ang iba lalo mga opisyal ng gobyerno natin .",Dios,OTH,FIL
+908,45,908,"sobra na talaga kalamidad na dumarating sa ating bansa , kawawa nman mga kababayan ko , patuloy tayo manalig sa Dios mga kabayan , kc wala na takot sa Dios ang iba lalo mga opisyal ng gobyerno natin .",Dios,OTH,FIL
+937,47,937,Wa epek na saming mga marcos loyalist ang lahat2 ng pannra nla ky bbm at gicing nrin amg sambayanang pilipino sa katthanan .,lahat2,OTH,FIL
+1010,50,1010,"Hell , maybe if shit turned out super well baka makasali ako sa mga nagpopost ng new custom builds dito .",nagpopost,CS,FIL
+1036,52,1036,hindi mo alam ang buhay at sakripisyo ng isang ina OFW din ako s matagal n panahon pero minahal at iginalang ako ng mga anak ko !,s,FIL,OTH
+1038,52,1038,hindi mo alam ang buhay at sakripisyo ng isang ina OFW din ako s matagal n panahon pero minahal at iginalang ako ng mga anak ko !,n,FIL,OTH
+1057,53,1057,Alangan punta ako dyan ng di tayo okay ?,okay,FIL,ENG
+1061,54,1061,Ganda ng name ko tas tatawagin mo akong pogi ?,name,ENG,FIL
+1112,57,1112,"Lumabas ako sa bahay para bawas stress naman , tas pag labas ko nakatapak ako ng tae haahahahahahahaha",stress,ENG,FIL
+1182,61,1182,"Asahan na ang matitinding talakayan sa usaping pag-ibig at pangangaliwa , panggagantso , at iba pa sa pagsisimula ng Amy-nin para rin magbigay-linaw at gabay sa mga manonood .",Amy-nin,FIL,OTH
+1249,66,1249,mag-aasawa muna ako ng mafia ha,ha,FIL,OTH
+1261,67,1261,"Noong dekada , ipinakilala ng mga batikero na naglipat patungo sa Malaya ang paggamit ng pagkit at blokeng tanso sa silangang baybayin nito .",Malaya,OTH,FIL
+1338,73,1338,"Arestado ang isang 28-anyos na obrero sa Bacoor City , Cavite nitong Miyerkoles ng hapon nang maaktuhang tangay ang isang cast iron manhole para sa Cavite Expressway ( CAVITEX ) .",28-anyos,FIL,OTH
+1403,77,1403,Nakakairita yung mga ganito .,.,OTH,FIL
+1454,81,1454,Kung ako kay ate girl magpost pa lalo ng mga pro-BBM post,girl,ENG,FIL
+1466,82,1466,Takot na ang mga dilawan Kay bbm,dilawan,OTH,FIL
+1476,83,1476,Nakakaumay nakakapanghina gumising / matulog ng ganto awit,awit,FIL,OTH
+1507,84,1507,"Bentang-benta nga sa TikTok ang mga paandar ni Angela , lalo na ang unfinished original song niyang Ako Naman Muna , na release na ang buong bersyon ngayong Biyernes ( March 5 ) .",March,ENG,OTH
+1515,85,1515,"Aabangan ko to sa saturday , bet ko itong episode ng",saturday,ENG,FIL
+1516,85,1516,"Aabangan ko to sa saturday , bet ko itong episode ng",",",OTH,FIL
+1517,85,1517,"Aabangan ko to sa saturday , bet ko itong episode ng",bet,FIL,ENG
+1605,89,1605,Nasa point na ako na ayaw ko na mag isip anong mangyayari sa Bazinga MV kasi always naman susurprisahin ako ng esbi for sure mamaya ulit SB19 BAZINGA MAMAYA,Bazinga,OTH,ENG
+1619,89,1619,Nasa point na ako na ayaw ko na mag isip anong mangyayari sa Bazinga MV kasi always naman susurprisahin ako ng esbi for sure mamaya ulit SB19 BAZINGA MAMAYA,BAZINGA,OTH,ENG
+1624,90,1624,Aalis ako ng Pilipinas ng walang plano .,Pilipinas,OTH,FIL
+1673,92,1673,"Umabot na sa 421 , 723 na overseas Filipino workers ( OFWs ) ang naasistihan sa ilalim ng Hatid-Tulong Program .",Hatid-Tulong,FIL,OTH
+1721,95,1721,Nhihirapan ako feeling ko hnd normal ang buhay ko kc palagi sila nasunod saken .,normal,ENG,FIL
+1744,96,1744,Dapat sila ang magtolongan pag NASA ibang Bansa . tama ksi ang ibang Pinoy magseselosan .,Pinoy,OTH,FIL
+1748,97,1748,Sorry alam Kong nasaktan ko kayo sa mga nasabi ko sobrang naiinis lang talaga ako sa sarili ko sana maintindihan nyoko sorry,alam,FIL,ENG
+1842,101,1842,Kung ngbabayad sana ng taxes ang abs cbn di sna bka andyn pa sila mapapanood pa natin .,ang,ENG,FIL
+1982,109,1982,"Siguro sa isang linggo tatlong araw lang na merong dumadating so mahihirapan talaga , ""  ani Rosendo So , chairman ng SINAG Sabi rin ng DA na patuloy nilang hinihimok ang mga hog raiser at trader na magdala ng mga baboy sa Metro Manila dahil sagot naman ng ahensiya ang transport .",so,FIL,ENG
+2022,109,2022,"Siguro sa isang linggo tatlong araw lang na merong dumadating so mahihirapan talaga , ""  ani Rosendo So , chairman ng SINAG Sabi rin ng DA na patuloy nilang hinihimok ang mga hog raiser at trader na magdala ng mga baboy sa Metro Manila dahil sagot naman ng ahensiya ang transport .",transport,ENG,FIL
+2075,113,2075,Tagal mag 5 gusto ko na panoorin mv ng aespaaaaa,mv,OTH,ENG
+2128,115,2128,Tas pag na PM magtatanong uoe ng details .,uoe,FIL,OTH
+2133,116,2133,ritwal reveal po sa mga pinapayagan magkulay ng buhok,reveal,FIL,ENG
+2309,121,2309,"Bukod sa MRT-3 , nagkakaloob rin ng libreng pamasahe para sa mga vaccinated APORs sa ECQ period ang LRT-2 at ang Philippine National Railways ( PNR ) .",Philippine,ENG,OTH
+2331,123,2331,Maganda ba ang work ethic ng player sa practice ?,work,ENG,FIL
+2332,123,2332,Maganda ba ang work ethic ng player sa practice ?,ethic,ENG,FIL
+2366,125,2366,"Ayon kay Valenzuela Mayor Rex Gatchalian , umabo simula 25 hanggang 50 porsiyento ng mga residente sa lugar ang nagpositibo sa COVID-19 , kaya napagpasyahan na isailalim ang lugar sa lockdown .",Mayor,OTH,ENG
+2395,126,2395,sanaol kay dusty 2nd time makasama sa mv ng esbi,sanaol,CS,OTH
+2397,126,2397,sanaol kay dusty 2nd time makasama sa mv ng esbi,dusty,ENG,OTH
+2398,126,2398,sanaol kay dusty 2nd time makasama sa mv ng esbi,2nd,OTH,ENG
+2404,126,2404,sanaol kay dusty 2nd time makasama sa mv ng esbi,esbi,OTH,FIL
+2412,127,2412,ngayon ka magdesisyon kung oorder ka ng set @ self,set,ENG,FIL
+2511,131,2511,"Sobra na tama na ang corruption lubog na lubog na ang Pilipinas , matakot sana sa Diyos mga nasa gobyerno na walang ginawa kundi magpayaman",Pilipinas,OTH,FIL
+2547,133,2547,"Ang mahal kasi ng galing sa mga kilalang brands , eh bihira ko lang naman gagamitin .",eh,FIL,OTH
+2579,134,2579,"Ang isinabuhay ni Job sa panahon ng kanyang buong buhay at ang kanyang kapansin pansin na tagumpay laban kay Satanas ay magpakailanman na itatangi ng Diyos , at ang kanyang pagka-perpekto at pagkamatuwid , at takot sa Diyos ay igagalang at tutularan ng mga henerasyon na darating .",Diyos,OTH,FIL
+2591,134,2591,"Ang isinabuhay ni Job sa panahon ng kanyang buong buhay at ang kanyang kapansin pansin na tagumpay laban kay Satanas ay magpakailanman na itatangi ng Diyos , at ang kanyang pagka-perpekto at pagkamatuwid , at takot sa Diyos ay igagalang at tutularan ng mga henerasyon na darating .",Diyos,OTH,FIL
+2700,139,2700,Madami ang nangangarap maging ako pero di nila alm mung ano setwasyon ko ngaun,alm,FIL,ENG
+2706,140,2706,Diman nato mahatag ang pamilya na gusto niya .,Diman,FIL,OTH
+2708,140,2708,Diman nato mahatag ang pamilya na gusto niya .,mahatag,FIL,OTH
+2749,143,2749,Ang isa sa mga model na pwedeng makisabay sa intertional scene ay ang CM Aqua S10 Pro .,Aqua,ENG,OTH
+2824,149,2824,"Ang naturang 59-anyos na lola ang unang COVID-19 patient sa Bian City , Laguna , at gumaling sa sakit ilang araw matapos na ipagdiwang kaniyang kaarawan .",59-anyos,OTH,FIL
+2899,151,2899,Sinabi pa niya ; Hangad kong ibalik ang mapagkaisang paglilingkod na magbubuklod sa ating bansa .,mapagkaisang,FIL,ENG
+2964,155,2964,ay pwede to nangaliwa yung asawa ko eh,eh,OTH,FIL
+2978,156,2978,sa nakapulot ng hikaw ni lilyme di nyo rin masasangla yan nasaken kapares e,e,FIL,OTH
+3045,160,3045,Diba nga sabi may covid sana iconsider mo yun dshil di naman nakalabas ng bahay dahil sa covid .,covid,OTH,CS
+3161,168,3161,May mga bagay na kailangang langkapan ng dagdag na responsibilidad .,May,FIL,OTH
+3233,172,3233,"Ang pinsala sa mga pambansang tanggapan ay tinatayang nasa halos P2-bilyon , habang ang pinsala sa mga ahensya ng lalawigan ay tinatayang mas mababa sa P2 . 1-bilyon .",P2-bilyon,FIL,OTH
+3250,172,3250,"Ang pinsala sa mga pambansang tanggapan ay tinatayang nasa halos P2-bilyon , habang ang pinsala sa mga ahensya ng lalawigan ay tinatayang mas mababa sa P2 . 1-bilyon .",1-bilyon,FIL,OTH
+3303,175,3303,nakakahiya na nga mag vid sa pe tapos sa school gc pa ipapasa fuckjshsksjajaka saksakin nyo nalang ako,pe,CS,OTH
+3307,175,3307,nakakahiya na nga mag vid sa pe tapos sa school gc pa ipapasa fuckjshsksjajaka saksakin nyo nalang ako,gc,CS,OTH
+3330,176,3330,Ang mga mahistrado ay itinatalaga ng pangulo ayon sa mungkahi ng Panghukuman at konseho ng bar ng Pilipinas .,bar,FIL,ENG
+3332,176,3332,Ang mga mahistrado ay itinatalaga ng pangulo ayon sa mungkahi ng Panghukuman at konseho ng bar ng Pilipinas .,Pilipinas,FIL,OTH
+3445,182,3445,"Sobrang natuwa ako kasi sobrang accommodating nila at ang sumundo pa sakin ay yung thera na napili ko , si J . Ang pogi pala talaga nya lalo sa personal .",thera,ENG,OTH
+3516,186,3516,"Sa written order , iniuutos ang agarang implementasyon ng moratorium sa DOE na tanging solusyon para sa pagkakaroon ng malinis na kapaligiran at masagip ang mga tao sa impak rising global temperatures .",DOE,CS,OTH
+3583,188,3583,Isinalarawan ni Senadora Leila de Lima na isang pagtokhang ang ginawang pagpatay sa prangkisa ng ABS-CBN .,ABS-CBN,CS,OTH
+3589,189,3589,"Kung maaari lahat ng fones at history ng messages ng mga sangkot kalkalin at i match sa time ng pangyayari , cctv footage sa lahat ng angles pagpasok at paglabas ng bisita tiyak ako malaking tulong yun !",fones,FIL,ENG
+3593,189,3593,"Kung maaari lahat ng fones at history ng messages ng mga sangkot kalkalin at i match sa time ng pangyayari , cctv footage sa lahat ng angles pagpasok at paglabas ng bisita tiyak ako malaking tulong yun !",messages,FIL,ENG
+3606,189,3606,"Kung maaari lahat ng fones at history ng messages ng mga sangkot kalkalin at i match sa time ng pangyayari , cctv footage sa lahat ng angles pagpasok at paglabas ng bisita tiyak ako malaking tulong yun !",cctv,OTH,ENG
+3675,193,3675,"Sa caption ni Sharon sa Instagram , nagpayo siyang mahalin ng mga tao ang kanilang katawan .",Instagram,OTH,ENG
+3700,194,3700,"wow yun ang sabaok , ganun ka pala baka pakitaan ko sila ng convo naten HAHAHA reply mo nga 3-5 words lang HAHAHAHAHAHA",convo,CS,ENG
+3760,198,3760,Nalaglag naman sa third place ang Red Lions na kakalabanin ang CSB Blazers sa play-in round sa darating na linggo .,Red,ENG,OTH
+3761,198,3761,Nalaglag naman sa third place ang Red Lions na kakalabanin ang CSB Blazers sa play-in round sa darating na linggo .,Lions,ENG,OTH
+3766,198,3766,Nalaglag naman sa third place ang Red Lions na kakalabanin ang CSB Blazers sa play-in round sa darating na linggo .,Blazers,ENG,OTH
+3863,203,3863,Panay patugtog ng christmas songs ng kapitbahay .,christmas,OTH,ENG
+3891,205,3891,"Sana nman wg u nang baratin mahirap po Gawain nila , tulong nlang Sana nyo sa Kanila , , SilA po Ang ninuno natin , Isa pa fresh mga binta nila , Kya wg nman baratin SilA , maawa nman kayo sa mga katutubo",u,FIL,ENG
+3965,207,3965,Tagal ko ng di nakakanood sayo Tito Pepsi ngayun nalang Ulet miss ko manood Dito !,Pepsi,OTH,ENG
+4085,212,4085,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,kv,FIL,OTH
+4088,212,4088,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,q,FIL,OTH
+4089,212,4089,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,kht,FIL,OTH
+4094,212,4094,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,q,FIL,OTH
+4098,212,4098,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,aq,FIL,OTH
+4103,212,4103,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,q,FIL,OTH
+4105,212,4105,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,aq,FIL,OTH
+4107,212,4107,Kht aq madali rin tumulo ang luha kht lalaki aq kc ginagawa q rin yan na ginagawa kht isa rin aqung mahirap kv ang katwiran q kht sa kaunti na maibaot q ay masaya na aq parang tumalbog ang puso q pagnakakabigay aq . kht barya lang .,kht,FIL,OTH
+4146,215,4146,itigil na ang sugal .makontento sana tau sa ibinibigay ng Diyos .alam mo nman na kasalanan ang pagsusugal .dahil every sunday my fellowship kayu respeto nalng sa Diyos na nasa itaas,my,FIL,ENG
+4177,216,4177,"Ayon sa Shell , Seaoil , Petrogazz at Cleanfuel , may taas na P0 . 45 sa bawat litro ng kanilang gasoline habang P0 . 30 naman ang dagdag sa bawat litro ng diesel .",gasoline,FIL,ENG
+4189,216,4189,"Ayon sa Shell , Seaoil , Petrogazz at Cleanfuel , may taas na P0 . 45 sa bawat litro ng kanilang gasoline habang P0 . 30 naman ang dagdag sa bawat litro ng diesel .",diesel,FIL,ENG
+4221,217,4221,"Ayon kay Alvin Enciso , hepe ng Customs Intelligence and Investigation Service ( CIIS ) sa MICP , ang pagpupuslit ng mga naturang sigarilyo sa bansa ay paglabag sa Section 1400 ng Customs Modernization and Tariff Act .",1400,OTH,ENG
+4319,222,4319,"Kung hindi tayo mag ingat at mag experemento ulit at maniniwala sa mga pangako at sila lang daw ang may blueprint sa mga projects , THE PHILIPPINES WILL BE BACK TO ZERO AGAIN !",PHILIPPINES,OTH,ENG
+4361,225,4361,Hangga't nanjan si Doque di ako naniniwala sa mga resulta ng daily covid cases report .,covid,OTH,ENG
+4392,227,4392,"Bukod pa rito , nangahulugan ito na may pagkakataon na si Job na makuha ang pagsang-ayon ng Diyos , at sa gayon ay mas mapapalapit siya sa Diyos .",Diyos,OTH,FIL
+4402,227,4402,"Bukod pa rito , nangahulugan ito na may pagkakataon na si Job na makuha ang pagsang-ayon ng Diyos , at sa gayon ay mas mapapalapit siya sa Diyos .",Diyos,OTH,FIL
+4433,229,4433,sasama na ako kay Papa Jesus pag may bagsak akong grade,Papa,FIL,ENG
+4434,229,4434,sasama na ako kay Papa Jesus pag may bagsak akong grade,Jesus,OTH,ENG
+4439,229,4439,sasama na ako kay Papa Jesus pag may bagsak akong grade,grade,ENG,FIL
+4566,236,4566,Bayaran kayo dapat patas ang laban kung maari hwag na kayong mag survey dahil alam na nang smartmatic ang mananalo,smartmatic,CS,OTH
+4601,238,4601,"bakit po minsan hindi gumagana ang chitin jump , at ang inaatake nya ay ang nasa unahan na axie ?",chitin,ENG,OTH
+4638,241,4638,Boss d ang likod talaga ng camera man mo,d,OTH,FIL
+4753,247,4753,"Yung babae na kasabay ko sa jeep na sinakyan ko , biglang hinablot ng lalaking lubak ang mukha at pAyat eh buti nga hindi nakuha yung phone sa babae .",jeep,FIL,ENG
+4767,247,4767,"Yung babae na kasabay ko sa jeep na sinakyan ko , biglang hinablot ng lalaking lubak ang mukha at pAyat eh buti nga hindi nakuha yung phone sa babae .",eh,OTH,FIL
+4873,254,4873,"Imaginine nyo , saan ko ilalagay ang 300 patients na yan ?",Imaginine,CS,FIL
+4892,256,4892,Baka yan pa ang ikamatay ko,Baka,FIL,ENG
+4915,257,4915,Ang mga paunang ulat ay nagpapahiwatig na ang helikopter ay nag-crash sa mga burol sa itaas ng Calabasas sa mabibigat na ulap .,Calabasas,FIL,OTH
+4987,260,4987,Tigil face-to-face class Hindi na rin pinayagan ni Pangulong Duterte ang face to face classes kaya nabuo ng Department of Education ang online at modular learning method para masiguro ang kaligtasan ng lahat ng mga estudyante sa bansa .,ang,ENG,FIL
+5080,265,5080,Kung wala pwede po ba kayo gumawa ng tiktok account ?,tiktok,OTH,ENG
+5086,266,5086,Bat parang nadedeja vu ako sa mga nangyayari ngaun ?,vu,ENG,OTH
+5092,266,5092,Bat parang nadedeja vu ako sa mga nangyayari ngaun ?,?,OTH,
+5138,269,5138,cong wag kang papayat ha,cong,OTH,FIL
+5142,269,5142,cong wag kang papayat ha,ha,FIL,OTH
+5171,272,5171,Day 2 ng gagawin lahat except mag-aral,except,ENG,FIL
+5243,277,5243,"Nagsimula bago mag-alas-8 ng umaga sa harap ng Commission on Audit ( COA ) sa Commonwealth Ave , nagtapos ang caravan sa Welcome Rotonda sa Quezon Ave pagsapit ng alas-1 ng hapon .",mag-alas-8,OTH,FIL
+5256,277,5256,"Nagsimula bago mag-alas-8 ng umaga sa harap ng Commission on Audit ( COA ) sa Commonwealth Ave , nagtapos ang caravan sa Welcome Rotonda sa Quezon Ave pagsapit ng alas-1 ng hapon .",Commonwealth,ENG,OTH
+5264,277,5264,"Nagsimula bago mag-alas-8 ng umaga sa harap ng Commission on Audit ( COA ) sa Commonwealth Ave , nagtapos ang caravan sa Welcome Rotonda sa Quezon Ave pagsapit ng alas-1 ng hapon .",Rotonda,ENG,OTH
+5270,277,5270,"Nagsimula bago mag-alas-8 ng umaga sa harap ng Commission on Audit ( COA ) sa Commonwealth Ave , nagtapos ang caravan sa Welcome Rotonda sa Quezon Ave pagsapit ng alas-1 ng hapon .",alas-1,OTH,FIL
+5376,282,5376,Kastress tong mga kailangan lakarin sa work ah ayoko na,ah,FIL,OTH
+5393,283,5393,"Dapat talaga na matalino tayo sa pagboto , huwag magpaloko sa mabulaklak ang sinasabi , huwag agad-agad bibigay , kilalanin maigi .",",",OTH,FIL
+5414,284,5414,"Ano ba ang problema mo at ang ingay-ingay mo , wika umano ni Ladia na sinagot naman ng biktima na bakit pag sinabi ko ba sayo masusulusyunan mo ?",Ladia,OTH,FIL
+5432,285,5432,""" hindi ah , titingin ako hanggang sa taas "" sabi ko at tumingin sa kanya .",ah,OTH,FIL
+5466,286,5466,nko po wag ka paapekto sa mga boshers mo kailangan tangapin mo sa sarili mo di lahat ng tao ma sa satisfies mo yaan mo cla mamoblema syo wag mo .,ma,FIL,OTH
+5467,286,5467,nko po wag ka paapekto sa mga boshers mo kailangan tangapin mo sa sarili mo di lahat ng tao ma sa satisfies mo yaan mo cla mamoblema syo wag mo .,sa,FIL,OTH
+5528,288,5528,"We just try to make some momentum for our team , kasi mabilis lang ang conference and dikit ang standings , sabi ni Cabagnot na tinulungan ang Beermen sa kabuuang 30-15 atake sa ikatlong yugto matapos na maglaho ang 10-puntos na abante at kapitan ang 39-38 abante pagpasok ng ikatlong stanza .",10-puntos,OTH,FIL
+5539,288,5539,"We just try to make some momentum for our team , kasi mabilis lang ang conference and dikit ang standings , sabi ni Cabagnot na tinulungan ang Beermen sa kabuuang 30-15 atake sa ikatlong yugto matapos na maglaho ang 10-puntos na abante at kapitan ang 39-38 abante pagpasok ng ikatlong stanza .",stanza,FIL,ENG
+5722,301,5722,ang daring nmn ng kiss mo bb sa gabi na natin ituloy hehe,daring,ENG,FIL
+5727,301,5727,ang daring nmn ng kiss mo bb sa gabi na natin ituloy hehe,bb,OTH,ENG
+5785,305,5785,Heograpiya Ang kabuuang sukat ng Cotabato ay kilometro parisukat .,Cotabato,FIL,OTH
+5881,310,5881,"Katulad ng ibang pagdiriwang ng birthday parties ngayon , wala rin kaibahan ang ginawa ng mag-asawang Dingdong Dantes at Marian Rivera para sa kanilang napakagandang unica hija na si Zia Dantes .",unica,OTH,FIL
+5882,310,5882,"Katulad ng ibang pagdiriwang ng birthday parties ngayon , wala rin kaibahan ang ginawa ng mag-asawang Dingdong Dantes at Marian Rivera para sa kanilang napakagandang unica hija na si Zia Dantes .",hija,OTH,FIL
+5883,310,5883,"Katulad ng ibang pagdiriwang ng birthday parties ngayon , wala rin kaibahan ang ginawa ng mag-asawang Dingdong Dantes at Marian Rivera para sa kanilang napakagandang unica hija na si Zia Dantes .",na,OTH,FIL
+5909,312,5909,Ang buong team payaman ang naging Go To videos ko lalo na yung kasagsagan ng pandemic napanood ko ata lahat ng buong videos ni cong .,payaman,OTH,FIL
+5930,312,5930,Ang buong team payaman ang naging Go To videos ko lalo na yung kasagsagan ng pandemic napanood ko ata lahat ng buong videos ni cong .,cong,FIL,OTH
+6013,318,6013,Wla ng bukang bibig etong c Karen kundi ang tungkol ky apo lakay pinipilit tlga nia ung pghingi ng sorry sa lhat ng iniinterview nia solid BIAS ang babaebg eto,lakay,FIL,OTH
+6073,322,6073,"Wag nyo q kausapin , ang broke ko .",kausapin,FIL,OTH
+6074,322,6074,"Wag nyo q kausapin , ang broke ko .",",",OTH,FIL
+6076,322,6076,"Wag nyo q kausapin , ang broke ko .",broke,ENG,FIL
+6077,322,6077,"Wag nyo q kausapin , ang broke ko .",ko,FIL,OTH
+6078,322,6078,"Wag nyo q kausapin , ang broke ko .",.,OTH,FIL
+6220,326,6220,Dapat lagyan ng isang lugar lang na pwede silang mag tinda at hindi pakalat kalat . bigyan sila ng ticket sa city hall para sa tax kisa sila na nga ang nakakadumi ng manila tapos hindi pa nag babayad ng buwis,manila,ENG,OTH
+6222,326,6222,Dapat lagyan ng isang lugar lang na pwede silang mag tinda at hindi pakalat kalat . bigyan sila ng ticket sa city hall para sa tax kisa sila na nga ang nakakadumi ng manila tapos hindi pa nag babayad ng buwis,hindi,ENG,FIL
+6276,329,6276,"Nakipagsabayan nga sa mga kandidatong pangulo , bise presidente at mga senador ang ibang partylist group na may pondo sa paramihan ng commercial o ads sa mga telebisyon , radyo at social media .",ads,OTH,ENG
+6333,332,6333,mga pulis kayo napaka unprofessional bakit kayo nagbibigay ng speculation lalo na in record wala pa kayong hard evidence !,in,ENG,FIL
+6364,333,6364,"ang mga kalaban ninyo sa politika , BBB Sarra , sana po kong makaupo kana pagka presedebente matulongan kaming mga mahihirap na senior citizin",citizin,ENG,FIL
+6499,338,6499,"wala kami final exam sa isang subject ko , nakokonsensya tuloy ako na hindi gawin yung kaisa-isang infomercial sa subject na 'yon .",subject,FIL,ENG
+6518,339,6518,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,n,FIL,OTH
+6520,339,6520,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,n,FIL,OTH
+6522,339,6522,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,n,FIL,OTH
+6525,339,6525,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,king,FIL,ENG
+6532,339,6532,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,s,FIL,OTH
+6539,339,6539,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,eh,FIL,OTH
+6546,339,6546,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,k,FIL,OTH
+6547,339,6547,alam mo n kc n napakalas n sya Kaya king ano ano nalang ang ibebentang nyo s kanya . mga abogado mo nga eh kaparehas mung Walang alam Kaya tumigil k n,n,FIL,OTH
+6551,340,6551,"Bilang pangunahing sponsor ng Universal Health Care Law , sisiguraduhin niyang mababawasan ang katiwalian sa ating sistema ng kalusugan .",ng,ENG,FIL
+6572,341,6572,Abot-abot ang paghingi ng paumanhin ng pamunuan sa hindi pagpigil sa tinaguriang si Poblacion girl na pumuslit sa kanyang quarantine facility .,paumanhin,ENG,FIL
+6581,341,6581,Abot-abot ang paghingi ng paumanhin ng pamunuan sa hindi pagpigil sa tinaguriang si Poblacion girl na pumuslit sa kanyang quarantine facility .,Poblacion,FIL,OTH
+6650,345,6650,Hindi pa napapapirma ng bagong kontrata si Marc Pingris matapos mag-expire ang dati noong December .,mag-expire,CS,FIL
+6657,346,6657,Kung ganitong prinsipal magdadalawang isip ako parang walang kakampi ang mga bata,ganitong,FIL,ENG
+6689,348,6689,"gandang umaga , umuwi ang wonki ko ahahaha ehem heeseung",wonki,FIL,OTH
+6766,353,6766,Paano magsasama-sama sa iisang bubong ang kakaibang pamilyang ito ?,magsasama-sama,ENG,FIL
+6898,361,6898,ito pa tinanong nyo eh nung candidacy pa ni Digong may pagka against na ito sa mga Duterte .,against,FIL,ENG
+6909,362,6909,Sana taung mga legal wife wag tau basta basta magagalit sa pinalit ng asawa natin kasi minsan lalaki nmn talaga ang may mali kadalasan nasasabi nlng wala silang asawa o wala silng pamilya,wife,ENG,FIL
+6991,366,6991,woaaa sige di na ko maaadik sa kape kaya talaga ako hirap matulog sa gabi lol kahit umaga ko sya inumin haha,lol,FIL,OTH
+6997,366,6997,woaaa sige di na ko maaadik sa kape kaya talaga ako hirap matulog sa gabi lol kahit umaga ko sya inumin haha,haha,ENG,OTH
+6998,367,6998,ay hindi ka nag iisa,ay,FIL,OTH
+7027,369,7027,"Ayon naman kay , we love chin po sobra kaya ipagtanggol po namin siya sa mga bashers niya na Marites lang .",chin,OTH,ENG
+7040,369,7040,"Ayon naman kay , we love chin po sobra kaya ipagtanggol po namin siya sa mga bashers niya na Marites lang .",Marites,OTH,FIL
+7103,371,7103,Iba pang Chika : AJ Raval nagbabalik social media matapos magtanggal ng posts sa Instagram Dingdong hindi basta-basta tumatanggap ng trabaho sa labas : Safety first pa rin ng pamilya !,Instagram,ENG,OTH
+7104,371,7104,Iba pang Chika : AJ Raval nagbabalik social media matapos magtanggal ng posts sa Instagram Dingdong hindi basta-basta tumatanggap ng trabaho sa labas : Safety first pa rin ng pamilya !,Dingdong,FIL,OTH
+7137,373,7137,"bahala ka sa buhay mo math , baket ako pa nagaayos ng problema mo",math,ENG,OTH
+7159,374,7159,"Nabanggit ng senadora na ang kinikilalang real estate business ng kanilang pamilya ay nagsimula lamang sa maliit na sand and gravel company , kayat batid niya ang potensyal ng mga maliliit na negosyo",nagsimula,FIL,ENG
+7230,376,7230,Si elias ay si bro nagkathang tao dahil hindi nila nakuha ang kanilang mission noon at nawala ang rebolto ni bro sa simbahan kaya nagkathang tao sya yun ang kanyang mission para masubaybayan nya si mira,bro,ENG,CS
+7240,376,7240,Si elias ay si bro nagkathang tao dahil hindi nila nakuha ang kanilang mission noon at nawala ang rebolto ni bro sa simbahan kaya nagkathang tao sya yun ang kanyang mission para masubaybayan nya si mira,mission,ENG,FIL
+7294,380,7294,kakaumay pati naman ako ay nadamay sa mga kaulagaan ni tita delot e kakaumayy,e,FIL,OTH
+7357,381,7357,Una umanong kinabahan ang bilang mangingisda na nag - akalang sisitahin at huhulihin sila ng mga tauhan ng PCG Gayunman ay napalitan ng ngiti ang pagtataka ang mga mangingisda at residente nang abutan sila ng grocery at P100 ng mga tauhan ng PCG Ang nabanggit na inisyatibo ng PCG ay naging matagumpay sa pakikipagtulungan ng 907th PCG Auxiliary ( PCGA ) Flotilla Squadron .,Flotilla,OTH,ENG
+7369,383,7369,Pero over all kahit maliit lang ang venue ng bahay ninyo naging maganda ang outcome ng wedding .,over,ENG,CS
+7370,383,7370,Pero over all kahit maliit lang ang venue ng bahay ninyo naging maganda ang outcome ng wedding .,all,ENG,CS
+7375,383,7375,Pero over all kahit maliit lang ang venue ng bahay ninyo naging maganda ang outcome ng wedding .,venue,ENG,CS
+7382,383,7382,Pero over all kahit maliit lang ang venue ng bahay ninyo naging maganda ang outcome ng wedding .,outcome,ENG,CS
+7384,383,7384,Pero over all kahit maliit lang ang venue ng bahay ninyo naging maganda ang outcome ng wedding .,wedding,ENG,CS
+7396,384,7396,"Nakalikom si Gomez ng two points , kasalo niya sa No .",No,OTH,FIL
+7449,390,7449,Mga Marcos jan nkapagpagawa ba ng KHit Isang condominiums man Lang sa mga mahihirap ?,condominiums,ENG,FIL
+7459,391,7459,"Ayaw mo ng broken family , ayaw mong lumaki ang mga anak mo na walang ama .",broken,ENG,FIL
+7460,391,7460,"Ayaw mo ng broken family , ayaw mong lumaki ang mga anak mo na walang ama .",family,ENG,FIL
+7481,392,7481,Yung ginawa pa akong judge ng dance bago ipost sa tiktok,ipost,CS,FIL
+7485,393,7485,At opposition talaga ako sa mga taong ang kakapal ng mukha tumakbo wala namang ginawa kundi maging pulpulitiko .,opposition,FIL,ENG
+7517,394,7517,Inamin ni Health Undersecretary Rosario Vergeire na matumal pa rin ang aplikante para sa health workers sa ilalim ng emergency hiring program ng Department of Health ( DOH ) para tugunan ang kakapusan sa frontliners sa panahon ng pandemya .,health,ENG,FIL
+7518,394,7518,Inamin ni Health Undersecretary Rosario Vergeire na matumal pa rin ang aplikante para sa health workers sa ilalim ng emergency hiring program ng Department of Health ( DOH ) para tugunan ang kakapusan sa frontliners sa panahon ng pandemya .,workers,ENG,FIL
+7663,398,7663,BBmSARA sure na pagbangon ng Pilipinas .,Pilipinas,OTH,FIL
+7734,401,7734,"isa lang ang masasabi ko , tangina mo hanz",hanz,OTH,FIL
+7770,404,7770,"Lars Ubaldo noong 20 Hulyo 2017: Sina Therese Vilog , isang bagonggradweyt ng Pilosopiya mula sa UP Diliman at Javier Nimer nagradweyt ng accounting ng Pamantasan ng Lungsod ng Maynila .",Sina,OTH,FIL
+7771,404,7771,"Lars Ubaldo noong 20 Hulyo 2017: Sina Therese Vilog , isang bagonggradweyt ng Pilosopiya mula sa UP Diliman at Javier Nimer nagradweyt ng accounting ng Pamantasan ng Lungsod ng Maynila .",Therese,FIL,OTH
+7772,404,7772,"Lars Ubaldo noong 20 Hulyo 2017: Sina Therese Vilog , isang bagonggradweyt ng Pilosopiya mula sa UP Diliman at Javier Nimer nagradweyt ng accounting ng Pamantasan ng Lungsod ng Maynila .",Vilog,FIL,OTH
+7775,404,7775,"Lars Ubaldo noong 20 Hulyo 2017: Sina Therese Vilog , isang bagonggradweyt ng Pilosopiya mula sa UP Diliman at Javier Nimer nagradweyt ng accounting ng Pamantasan ng Lungsod ng Maynila .",bagonggradweyt,FIL,CS
+7785,404,7785,"Lars Ubaldo noong 20 Hulyo 2017: Sina Therese Vilog , isang bagonggradweyt ng Pilosopiya mula sa UP Diliman at Javier Nimer nagradweyt ng accounting ng Pamantasan ng Lungsod ng Maynila .",nagradweyt,FIL,CS
+7812,405,7812,Matatandaang umabot na sa danger level o nasa 21 . 9 meters ang water level ng Marikina River bandang 9:37 Huwebes ng umaga .,River,ENG,OTH
+7823,406,7823,"Kuwento ng anak ni Bossing Vic Sotto , isa siyang masamang tao noong teenager pa lamang siya at maraming pagkakataon daw na maaari siyang mamatay dahil sa mga pinaggagawa niya .",Bossing,CS,FIL
+7875,409,7875,Sana buwagin na ni BBM tong mga salot na to wag pagkakitaan ang simbahan mga hudyo !,BBM,FIL,OTH
+7901,410,7901,akala ko talaga ang tahimik lang natin kanina hahahaha ang konti lang natin eh .,eh,FIL,ENG
+7962,413,7962,"Taong 1456 , makalipas ang tatlumput limang taon , muling pinabuksan ng Santo Papa ang kaso ng Maid of Orleans at nabaligtad nga ang sentensiya sa kanya sa pagsasad na ito ay tainted by fraud , calumny , iniquity , contradiction , and manifests errors of fact and of law .",tainted,CS,ENG
+7963,413,7963,"Taong 1456 , makalipas ang tatlumput limang taon , muling pinabuksan ng Santo Papa ang kaso ng Maid of Orleans at nabaligtad nga ang sentensiya sa kanya sa pagsasad na ito ay tainted by fraud , calumny , iniquity , contradiction , and manifests errors of fact and of law .",by,CS,ENG
+7964,413,7964,"Taong 1456 , makalipas ang tatlumput limang taon , muling pinabuksan ng Santo Papa ang kaso ng Maid of Orleans at nabaligtad nga ang sentensiya sa kanya sa pagsasad na ito ay tainted by fraud , calumny , iniquity , contradiction , and manifests errors of fact and of law .",fraud,CS,ENG
+8005,414,8005,Nagpatawag ng biglaang press conference ang PBA kahapon para basagin ang balitang may go-signal na si Kiefer na maglaro sa Shiga Lakestars pagkatapos ng Philippine Cup .,Philippine,ENG,OTH
+8053,417,8053,"Gogogo Bongbong Marcos , sana ikaw na ang sumunod sa yapak ni pangulong Duterte , kc ang mga Marcos nmn tlaga ang my tunay na my malasakit sa mga Pilipino , siniraan lng ng mga Aquino ang pangalan ng mga Marcos , dhil sa inggit nila sa mga Marcos .",Gogogo,OTH,ENG
+8130,420,8130,"Gayunman , aminado itong hindi natupad ang physical distancing dahil sa dami ng mga lumikas .",physical,CS,ENG
+8131,420,8131,"Gayunman , aminado itong hindi natupad ang physical distancing dahil sa dami ng mga lumikas .",distancing,CS,ENG
+8193,424,8193,Parang maituturing na malasakit na rin sa kapwa ang hindi pagboto sa iyo mamshiee,mamshiee,FIL,OTH
+8211,425,8211,Pumalo na sa 507 . 91 milyon ang bilang ng kumpirmadong kaso ng COVID-19 sa buong mundo .,.,FIL,OTH
+8220,426,8220,At kaya siguro ilang buwan ding sasabak sa lock-in taping ang programa ay dahil dire-diretso na ito hanggang sa katapusan .,lock-in,FIL,ENG
+8221,426,8221,At kaya siguro ilang buwan ding sasabak sa lock-in taping ang programa ay dahil dire-diretso na ito hanggang sa katapusan .,taping,FIL,ENG
+8268,429,8268,"Ikinumpara ng ibang netizen ang sitwasyon ng mga Pilipinong stranded sa Rizal Memorial Stadium na sabik umuwi sa kani-kanilang probinsya , habang sina Sarah at Mattero raw ay pa-honeymoon-honeymoon lang at may leisure travel getaway .",netizen,FIL,ENG
+8306,430,8306,Ibinahagi niya ito sa kanyang Instagram Stories ang mga larawan na tinamo sa loob ng bahay niya .,Instagram,CS,ENG
+8307,430,8307,Ibinahagi niya ito sa kanyang Instagram Stories ang mga larawan na tinamo sa loob ng bahay niya .,Stories,CS,ENG
+8350,432,8350,Parang naloloko na Tayo ng Host ah,ah,OTH,FIL
+8410,436,8410,Dito kinuha ni janin ang kinanta nya sa tawag ng tanghalan,janin,FIL,OTH
+8460,438,8460,Tanging ang Tanduay Rhum Masters lang ang walang talo dahil sa dating manlalaro ng La Salle na ngayon ay coach nila na si Cholo Villanueva .,coach,ENG,FIL
+8495,440,8495,"Sana umuwi nalang siya para makasama pa niya pamilya niya , at least kahit ganon nakakasama niya mga anak mo pamilya niya",at,ENG,CS
+8496,440,8496,"Sana umuwi nalang siya para makasama pa niya pamilya niya , at least kahit ganon nakakasama niya mga anak mo pamilya niya",least,ENG,CS
+8515,441,8515,Si choox pinili yang pasayahin ang mga tao si bulldog naka fucos sa pera kay nag stay parin ako kay choox,bulldog,ENG,OTH
+8517,441,8517,Si choox pinili yang pasayahin ang mga tao si bulldog naka fucos sa pera kay nag stay parin ako kay choox,fucos,ENG,FIL
+8526,441,8526,Si choox pinili yang pasayahin ang mga tao si bulldog naka fucos sa pera kay nag stay parin ako kay choox,choox,ENG,OTH
+8609,446,8609,"never kong naisip na sayang yung panahon o oras ko sayo , masyado akong masaya nung mga panahong yun",sayang,ENG,FIL
+8731,452,8731,"Sa parehong panayam sinabi ng SOCO anchor , na nasanay na siya sa mga patayang nakikita tuwing siyay nagko-cover .",nagko-cover,FIL,CS
+8733,453,8733,start na ang content HAHAHAHA,start,FIL,ENG
+8743,454,8743,Tahimik sila kasi di nila gets ang issue dun kasi sila maingay at magaling sa pangungutya kay VP Leni .,gets,ENG,FIL
+8745,454,8745,Tahimik sila kasi di nila gets ang issue dun kasi sila maingay at magaling sa pangungutya kay VP Leni .,issue,FIL,ENG
+8873,458,8873,"Ikinagulantang at ikinatuwa ng mga netizen ang paglabas ng mga bagong kalendaryo ng White Castle Whisky nitong Enero 14 , 2022 , dahil game-changer ang model nitowalang iba kundi ang internet sensation na si Sassa Gurl !",Gurl,FIL,OTH
+8893,459,8893,At ang pinaka-latest nga rito ay ang pagiging certified fan ng bagets ng sikat na sikat na K-Pop group na BTS .,group,ENG,FIL
+8963,463,8963,Hi po mama anne bed pad po ang tawag doon sa pang sapin sa mattress .,mama,OTH,FIL
+8978,464,8978,Yung bet ko ng mas matanda sakin pero mga bagets yung nag kakagusto sakin mga be engk ako sa kiddie meal,bet,CS,ENG
+8993,464,8993,Yung bet ko ng mas matanda sakin pero mga bagets yung nag kakagusto sakin mga be engk ako sa kiddie meal,engk,FIL,OTH
+9008,465,9008,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",alas-3:15,FIL,OTH
+9022,465,9022,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",Honda,CS,OTH
+9023,465,9023,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",Wave,CS,OTH
+9029,465,9029,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",Tanza,FIL,OTH
+9032,465,9032,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",Indang,FIL,OTH
+9042,465,9042,"Richard Chavez ng Trece Martires City Police Station , dakong alas-3:15 ng madaling-araw nang maganap ang insidente kung saan sakay ang mga biktima ng Honda Wave 100 patungo sa direksiyon ng Tanza galing sa Indang , habang ang suspek ay papunta sa direksiyon ng Naic galing Gen Trias City .",Naic,FIL,OTH
+9055,466,9055,"Sino ba tumapak sa pagkatao nyo , Ser , at nanguna kayong bumanat ?",Ser,OTH,FIL
+9067,467,9067,salamat sa inyong lahat sana'y okay ka ika'y mahalaga,okay,ENG,FIL
+9115,471,9115,"Kakanood ng vids mo sir Dti di ako maka angat ng 1300mmr , ngayon 1 . 6k+ mmr n ko 12slp per win at d n ko nbaba ng 1 . 5k .",sir,ENG,FIL
+9116,471,9116,"Kakanood ng vids mo sir Dti di ako maka angat ng 1300mmr , ngayon 1 . 6k+ mmr n ko 12slp per win at d n ko nbaba ng 1 . 5k .",Dti,FIL,OTH
+9129,471,9129,"Kakanood ng vids mo sir Dti di ako maka angat ng 1300mmr , ngayon 1 . 6k+ mmr n ko 12slp per win at d n ko nbaba ng 1 . 5k .",n,ENG,FIL
+9189,474,9189,Mga Bobo at tanga nalang Ang Bobo to kina leni lugaw ka isko pacyaw at lason hwag pauto sa mga pulpulitiko bbm for president,lason,FIL,OTH
+9190,474,9190,Mga Bobo at tanga nalang Ang Bobo to kina leni lugaw ka isko pacyaw at lason hwag pauto sa mga pulpulitiko bbm for president,hwag,FIL,OTH
+9194,474,9194,Mga Bobo at tanga nalang Ang Bobo to kina leni lugaw ka isko pacyaw at lason hwag pauto sa mga pulpulitiko bbm for president,pulpulitiko,FIL,OTH
+9282,479,9282,"Ang mga ibon at hayop , mga puno , kagubatan , kabundukan , mga ilog , ang lahat ng bagay sa ibabaw ng lupa ay nasa pangangalaga ng mga taoibig sabihin , nina Adan at Eva samantalang sinunod nina Adan at Eva ang arkanghel .",nina,OTH,FIL
+9318,482,9318,"Kasunod ng biglaang postponement ng Miss World Philippines pageant , idinaan na lang ng organizer sa botohan ng 45 candidates ang pagpili ng kinatawan ng bansa sa Miss Supranational sa Poland .",Philippines,ENG,OTH
+9339,482,9339,"Kasunod ng biglaang postponement ng Miss World Philippines pageant , idinaan na lang ng organizer sa botohan ng 45 candidates ang pagpili ng kinatawan ng bansa sa Miss Supranational sa Poland .",Supranational,ENG,OTH
+9374,484,9374,Ang Bayan ng Kapalong ay isang unang klaseng .,Kapalong,FIL,OTH
+9384,485,9384,hahahaa jusmio kung ito yong dadami na ano pa ang pinas,yong,FIL,OTH
+9439,488,9439,So sana mapili sa phone giveaway niyo sir vince mahilig po kasi siya manood ng vids sa YT .,phone,ENG,FIL
+9440,488,9440,So sana mapili sa phone giveaway niyo sir vince mahilig po kasi siya manood ng vids sa YT .,giveaway,ENG,FIL
+9443,488,9443,So sana mapili sa phone giveaway niyo sir vince mahilig po kasi siya manood ng vids sa YT .,vince,OTH,FIL
+9450,488,9450,So sana mapili sa phone giveaway niyo sir vince mahilig po kasi siya manood ng vids sa YT .,vids,ENG,FIL
+9452,488,9452,So sana mapili sa phone giveaway niyo sir vince mahilig po kasi siya manood ng vids sa YT .,YT,OTH,CS
+9507,491,9507,Pwede kya jan ang mga pencil n pangdrwing hehe,pencil,ENG,FIL
+9510,491,9510,Pwede kya jan ang mga pencil n pangdrwing hehe,hehe,OTH,CS
+9520,493,9520,"Inilagay sa full alert status ang lahat 24 , 000 pulis sa Metro Manila ngayon Semana Santa .",full,ENG,FIL
+9530,493,9530,"Inilagay sa full alert status ang lahat 24 , 000 pulis sa Metro Manila ngayon Semana Santa .",Metro,OTH,FIL
+9531,493,9531,"Inilagay sa full alert status ang lahat 24 , 000 pulis sa Metro Manila ngayon Semana Santa .",Manila,OTH,FIL
+9533,493,9533,"Inilagay sa full alert status ang lahat 24 , 000 pulis sa Metro Manila ngayon Semana Santa .",Semana,OTH,FIL
+9534,493,9534,"Inilagay sa full alert status ang lahat 24 , 000 pulis sa Metro Manila ngayon Semana Santa .",Santa,OTH,FIL
+9548,494,9548,Nakabalik na sa studio ang mga TV host matapos ang ilang linggong pagse-self quarantine sa kani-kanilang tahanan .,pagse-self,FIL,CS
+9565,496,9565,Hoy mga bbw itigil niyo yan sa tiktok pa talaga kayo nagkalat grabe na uy,Hoy,FIL,OTH
+9587,497,9587,This is what I've been waiting for kuys mag mula ng kantahin mo to sa isa sa mga blog mo na title weder lss talaga ako dito ehh,kuys,FIL,OTH
+9616,499,9616,Hello po mag ask po ako sa inyo ng help para po magkaroon ng laptop para sa aking pag-aaral .,Hello,FIL,ENG
+9619,499,9619,Hello po mag ask po ako sa inyo ng help para po magkaroon ng laptop para sa aking pag-aaral .,ask,FIL,ENG
+9625,499,9625,Hello po mag ask po ako sa inyo ng help para po magkaroon ng laptop para sa aking pag-aaral .,help,ENG,FIL
