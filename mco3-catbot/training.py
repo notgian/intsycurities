@@ -16,7 +16,6 @@ from cat_env import make_env
 
 
 
-
 #############################################################################
 # END OF YOUR CODE. DO NOT MODIFY ANYTHING BEYOND THIS LINE.                #
 #############################################################################
@@ -44,7 +43,7 @@ def train_bot(cat_name, render: int = -1):
     discount_factor = 0.9
 
     epsilon = 0.95
-    epsilon_decay = 0.999
+    epsilon_decay = 0.995
     epsilon_min = 0.05
     
     training_start_time = time.perf_counter()
@@ -52,7 +51,8 @@ def train_bot(cat_name, render: int = -1):
     #############################################################################
     # END OF YOUR CODE. DO NOT MODIFY ANYTHING BEYOND THIS LINE.                #
     #############################################################################
-    
+
+
     for ep in range(1, episodes + 1):
         ##############################################################################
         # TODO: IMPLEMENT THE Q-LEARNING TRAINING LOOP HERE.                         #
@@ -67,6 +67,7 @@ def train_bot(cat_name, render: int = -1):
                
         state = env.reset()[0]
         done = False
+        last_5_states = list()
 
         while not done:
             if random.random() < epsilon or np.max(q_table[state]) == 0:
@@ -74,9 +75,6 @@ def train_bot(cat_name, render: int = -1):
             else:
                 action = np.argmax(q_table[state])
 
-            if epsilon > epsilon_min:
-                epsilon *= epsilon_decay
-            
             # take next step
             new_state, reward, terminated, truncated, info = env.step(action)
 
@@ -104,8 +102,18 @@ def train_bot(cat_name, render: int = -1):
                 reward = 10000
             elif manhattan > manhattan_prev:
                 reward = -2
-            elif manhattan <= manhattan_prev:
+            elif new_state == state:
+                reward = -10
+            else:
                 reward = -1
+            
+            # further discourage going back to last n states
+            if new_state in last_5_states:
+                reward += -(last_5_states.index(new_state))
+
+            last_5_states.insert(0, new_state)
+            if len(last_5_states) > 5:
+                last_5_states.pop(5)
             
             # update Q(s,a)
             q_table[state][action] = q_table[state][action] + \
@@ -114,6 +122,9 @@ def train_bot(cat_name, render: int = -1):
             state = new_state
             done = terminated or truncated
         
+        if epsilon > epsilon_min:
+            epsilon *= epsilon_decay
+            
         #############################################################################
         # END OF YOUR CODE. DO NOT MODIFY ANYTHING BEYOND THIS LINE.                #
         #############################################################################
