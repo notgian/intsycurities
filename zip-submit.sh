@@ -26,7 +26,6 @@ case "$CHOICE" in
         ;;
     2)
         FILENAME="mco2.zip"
-        TEMPDIR="mco2"
         echo "Zipping up mco2 files..."
         cd './mco2-pinoybot'
 
@@ -34,20 +33,17 @@ case "$CHOICE" in
         mv $FILENAME ..
         
         cd ..
-        # mkdir $TEMPDIR
-        # cp "./mco2-pinoybot/requirements.txt" $TEMPDIR
-        # cp "./mco2-pinoybot/pinoybot.py" $TEMPDIR
-        # cp "./mco2-pinoybot/extractor.py" $TEMPDIR
-        # cp "./mco2-pinoybot/pinoybot_model_pipeline.pk1" $TEMPDIR
-        # cd ./$TEMPDIR
-        # zip -r $FILENAME *
-        # mv $FILENAME ..
-        # cd ..
-        # rm -r $TEMPDIR
         echo "file stored in $(pwd)/$FILENAME"
         ;;
     3)
-        echo "Not implemented yet..."
+        FILENAME="mco3.zip"
+        MCO3_DIR="./mco3-catbot"
+        # remove pycache
+        rm -r "$MCO3_DIR/__pycache__"
+
+        echo "Zipping up mco3 files..."
+        zip -r $FILENAME $MCO3_DIR
+        echo "file stored in $(pwd)/$FILENAME"
         ;;
     *)
         echo "Error: Invalid argument '$CHOICE'." >&2
