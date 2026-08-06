@@ -47,6 +47,8 @@ def train_bot(cat_name, render: int = -1):
     epsilon_decay = 0.999
     epsilon_min = 0.05
     
+    training_start_time = time.perf_counter()
+    
     #############################################################################
     # END OF YOUR CODE. DO NOT MODIFY ANYTHING BEYOND THIS LINE.                #
     #############################################################################
@@ -121,5 +123,42 @@ def train_bot(cat_name, render: int = -1):
             viz_env = make_env(cat_type=cat_name)
             play_q_table(viz_env, q_table, max_steps=100, move_delay=0.02, window_title=f"{cat_name}: Training Episode {ep}/{episodes}")
             print('episode', ep)
+
+            
+    training_end_time = time.perf_counter()
+    training_time = training_end_time - training_start_time
+
+  
+    evaluation_env = make_env(cat_type=cat_name)
+    evaluation_state, _ = evaluation_env.reset()
+
+    evaluation_moves = 0
+    caught = False
+    max_evaluation_moves = 60
+
+    while evaluation_moves < max_evaluation_moves:
+        action = int(np.argmax(q_table[evaluation_state]))
+
+        new_state, reward, terminated, truncated, info = \
+            evaluation_env.step(action)
+
+        evaluation_moves += 1
+        evaluation_state = new_state
+
+        if terminated:
+            caught = True
+            break
+
+        if truncated:
+            break
+
+    evaluation_env.close()
+
+    print()
+    print(f"Cat: {cat_name.capitalize()}")
+    print(f"Training episodes: {episodes}")
+    print(f"Training time: {training_time:.2f} seconds")
+    print(f"Evaluation moves: {evaluation_moves}")
+    print(f"Caught within 60 moves: {'Yes' if caught else 'No'}")
 
     return q_table
