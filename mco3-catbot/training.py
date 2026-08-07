@@ -43,7 +43,7 @@ def train_bot(cat_name, render: int = -1):
     discount_factor = 0.9
 
     epsilon = 0.95
-    epsilon_decay = 0.995
+    epsilon_decay = 0.999
     epsilon_min = 0.05
     
     training_start_time = time.perf_counter()
